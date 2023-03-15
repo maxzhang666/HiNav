@@ -7,7 +7,11 @@
 ```shell
 composer update
 
-php artisan admin:install
+php artisan key:generate --ansi
+
+# php artisan admin:install
+
+php artisan migrate
 
 php artisan db:seed
 ```
