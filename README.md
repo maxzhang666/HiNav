@@ -7,6 +7,8 @@
 ```shell
 composer update
 
+cp .env.example .evn
+
 php artisan key:generate --ansi
 
 # php artisan admin:install
