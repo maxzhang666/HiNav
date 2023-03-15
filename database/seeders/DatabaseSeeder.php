@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use Dcat\Admin\Models\AdminTablesSeeder;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,6 +15,7 @@ class DatabaseSeeder extends Seeder
     public function run(AdminTablesSeeder $adminTablesSeeder)
     {
         // \App\Models\User::factory(10)->create();
+
         $adminTablesSeeder->run();
     }
 }
