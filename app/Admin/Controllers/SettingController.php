@@ -4,6 +4,7 @@ namespace App\Admin\Controllers;
 
 use App\Http\Controllers\Controller;
 use Dcat\Admin\Layout\Content;
+use Dcat\Admin\Widgets\Card;
 
 /**
  * Class SettingController
@@ -17,6 +18,6 @@ class SettingController extends Controller
      */
     public function index(Content $content): Content
     {
-        return $content->header('')->description('')->body('');
+        return $content->header('')->description('')->body(new Card('基础配置'));
     }
 }
