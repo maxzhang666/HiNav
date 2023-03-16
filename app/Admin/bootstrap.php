@@ -41,6 +41,16 @@ Admin::menu(function (Menu $menu) {
             'parent_id'=>1,
             'permission_id'=>'test', // 与权限绑定
             'roles'=>'test-roles', // 与角色绑定
-        ]
+        ],
+        [
+            'id'=>12, // 此id只要保证当前的数组中是唯一的即可
+            'title'=>'页脚配置',
+            'icon'=>'fa-circle-o',
+            'uri'=>'setting/footer_setting',
+            'parent_id'=>1,
+            'permission_id'=>'test', // 与权限绑定
+            'roles'=>'test-roles', // 与角色绑定
+        ],
+
     ]);
 });

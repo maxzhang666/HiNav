@@ -14,4 +14,5 @@ Route::group([
 
     $router->get('/', 'HomeController@index');
     $router->get('setting', 'SettingController@index');
+    $router->get('setting/footer_setting', 'SettingController@footer_setting');
 });
