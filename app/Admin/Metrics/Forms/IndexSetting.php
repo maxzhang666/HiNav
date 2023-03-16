@@ -23,7 +23,7 @@ class IndexSetting extends Form
     public function form()
     {
         $this->tab('首页配置', function (Form $form) {
-            $form->number(Constants::Index_Block_Columns, '网址列数')->required()->default(4)->help('网址块列表一行显示的个数');
+            $form->radio(Constants::Index_Block_Columns, '网址列数')->options(Constants::Index_Block_Columns_Data)->default(4)->help('网址块列表一行显示的个数');
         });
 
     }
