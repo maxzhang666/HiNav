@@ -2,6 +2,9 @@
 
 namespace App\Extensions;
 
+/**
+ * @method response()
+ */
 trait FormSaver
 {
 

@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Admin\Metrics\Forms\IndexSetting;
 use App\Http\Controllers\Controller;
 use Dcat\Admin\Layout\Content;
 use Dcat\Admin\Widgets\Card;
@@ -18,6 +19,6 @@ class SettingController extends Controller
      */
     public function index(Content $content): Content
     {
-        return $content->header('')->description('')->body(new Card('基础配置'));
+        return $content->header('')->description('')->body(new Card(IndexSetting::make()));
     }
 }
