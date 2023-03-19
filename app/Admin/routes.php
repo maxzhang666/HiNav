@@ -15,4 +15,6 @@ Route::group([
     $router->get('/', 'HomeController@index');
     $router->get('setting', 'SettingController@index');
     $router->get('setting/footer_setting', 'SettingController@footer_setting');
+    $router->get('setting/color_setting', 'SettingController@color_setting');
+    $router->get('setting/icon_setting', 'SettingController@icon_setting');
 });
