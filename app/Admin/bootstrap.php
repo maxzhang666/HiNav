@@ -68,7 +68,7 @@ Admin::menu(function (Menu $menu) {
             'parent_id'=>1,
             'permission_id'=>'test', // 与权限绑定
             'roles'=>'test-roles', // 与角色绑定
-        ],
+        ]
 
     ]);
 });

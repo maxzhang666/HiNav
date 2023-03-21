@@ -29,10 +29,15 @@ final class Constants
     #region 图标设置
     const Icon_Logo = 'icon_logo';
     const Icon_Logo_White = 'icon_logo_white';
+    const Icon_Logo_Small = 'icon_logo_small';
+    const Icon_Logo_Small_White = 'icon_logo_small_white';
     const Icon_Favicon = 'icon_favicon';
     const Icon_Favicon_Apple = 'icon_favicon_apple';
     #endregion
 
+    #region 基础配置
+    const Basic_Mini_Nav= 'basic_mini_nav';
+    #endregion
 
     #region 颜色配置
     const Color_Theme = 'color_theme';

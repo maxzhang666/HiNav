@@ -21,6 +21,7 @@ class Controller extends BaseController
 
     private $keywords;
     private $description;
+    private $logo_white;
 
     /**
      * @param $view
@@ -34,6 +35,7 @@ class Controller extends BaseController
             'title_after' => $this->title_after,
             'url' => $this->url,
             'logo' => $this->logo,
+            'logo_white' => $this->logo_white,
             'keywords' => $this->keywords,
             'description' => $this->description,
         ]);
