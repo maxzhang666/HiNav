@@ -12,6 +12,9 @@ Route::group([
     'middleware' => config('admin.route.middleware'),
 ], function (Router $router) {
 
+    $router->resource('hn_menu', 'HnMenuController');
+
+
     $router->get('/', 'HomeController@index');
     $router->get('setting', 'SettingController@index');
     $router->get('setting/footer_setting', 'SettingController@footer_setting');

@@ -32,7 +32,7 @@
                         {{--                            $url = trim($category['url']);--}}
                         {{--                        if (strlen($url) > 1 && substr($url, 0, 1) == '#') { ?>--}}
                         {{--                        <li class="sidebar-item">--}}
-                        {{--                            <a href="<?php if (is_home() || is_front_page()): ?><?php else: echo home_url()?>/<?php endif; ?><?php echo $url ?>"--}}
+{{--                                                    <a href="<?php if (is_home() || is_front_page()): ?><?php else: echo home_url()?>/<?php endif; ?><?php echo $url ?>"--}}
                         {{--                               class="smooth">--}}
                         {{--                                <i class="<?php echo $icon ?> icon-fw icon-lg mr-2"></i>--}}
                         {{--                                <span><?php echo $category['title']; ?></span>--}}

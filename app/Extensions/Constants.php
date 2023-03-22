@@ -36,7 +36,7 @@ final class Constants
     #endregion
 
     #region 基础配置
-    const Basic_Mini_Nav= 'basic_mini_nav';
+    const Basic_Mini_Nav = 'basic_mini_nav';
     #endregion
 
     #region 颜色配置
@@ -53,5 +53,19 @@ final class Constants
 
     const Color_Full_Loading = 'color_full_loading';
     const Color_Customer_Color = 'color_customer_color';
+    #endregion
+
+    #region 菜单配置
+    const Menu_Type = [
+        '侧边主菜单' => 0,
+        '侧边底部菜单' => 1,
+        '顶部主菜单' => 2,
+        '搜索推荐菜单' => 3,
+
+//        0 => '侧边主菜单',
+//        1 => '侧边底部菜单',
+//        2 => '顶部主菜单',
+//        3 => '搜索推荐菜单',
+    ];
     #endregion
 }
