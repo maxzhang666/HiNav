@@ -20,6 +20,7 @@ class CreateHnMenuTable extends Migration
             $table->string('link')->default('');
             $table->string('type')->default('');
             $table->string('icon')->default('')->nullable();
+            $table->integer('sort')->default(0);
             $table->timestamps();
         });
     }
