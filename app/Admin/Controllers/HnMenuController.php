@@ -21,11 +21,11 @@ class HnMenuController extends AdminController
         return Grid::make(new HnMenu(), function (Grid $grid) {
             $grid->column('id')->sortable();
             $grid->column('name');
-            $grid->column('pid');
+            $grid->column('pid')->select(\App\Models\HnMenu::GetRoots(),true)->width(160);// using(\App\Models\HnMenu::GetRoots())->editable();
             $grid->column('link');
-            $grid->column('type');
+            $grid->column('type')->using(Constants::Menu_Type);
             $grid->column('icon');
-            $grid->column('created_at');
+            $grid->column('created_at')->sortable();
             $grid->column('updated_at')->sortable();
 
             $grid->filter(function (Grid\Filter $filter) {
@@ -67,7 +67,7 @@ class HnMenuController extends AdminController
             $form->display('id');
             $form->text('name');
             $form->select('pid')->options(function ($id) {
-                return \App\Models\HnMenu::GetPid($id);
+                return \App\Models\HnMenu::GetRoots($id);
             });
             $form->text('link')->default("#");
             $form->select('type')->options(Constants::Menu_Type);

@@ -19,7 +19,6 @@
     <link rel="shortcut icon" href="{{admin_setting(Constants::Icon_Favicon)}} ">
     <link rel="apple-touch-icon" href="{{admin_setting(Constants::Icon_Favicon_Apple)}} ">
     {{--head、自定义颜色--}}
-
     <link rel='stylesheet' href='{{asset("asset/css/all.min.css")}}' type='text/css' media='all'/>
     <link rel='stylesheet' href='{{asset("asset/css/v4-shims.min.css")}}' type='text/css' media='all'/>
     <link rel='stylesheet' href='{{asset("asset/css/iconfont.css")}}' type='text/css' media='all'/>

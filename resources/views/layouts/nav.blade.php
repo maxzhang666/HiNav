@@ -1,5 +1,5 @@
 @php
-    use App\Extensions\Constants;$logo_class = '';
+    use App\Extensions\Constants;use App\Models\HnMenu;$logo_class = '';
     $logo_light_class = 'class="d-none"';
     if(admin_setting('theme_mode')=="grey-mode"){
         $logo_class = 'class="logo-dark d-none"';
@@ -24,63 +24,34 @@
             <div class="sidebar-scroll">
                 <div class="sidebar-menu-inner">
                     <ul>
-                        {{--                        <?php--}}
-                        {{--                        foreach ($categories as $category) {--}}
-                        {{--                        if ($category['menu_item_parent'] == 0){--}}
-                        {{--                        if ($category['type'] != 'taxonomy' && empty($category['submenu'])){--}}
-                        {{--                            $icon = implode(" ", $category['classes']);--}}
-                        {{--                            $url = trim($category['url']);--}}
-                        {{--                        if (strlen($url) > 1 && substr($url, 0, 1) == '#') { ?>--}}
-                        {{--                        <li class="sidebar-item">--}}
-{{--                                                    <a href="<?php if (is_home() || is_front_page()): ?><?php else: echo home_url()?>/<?php endif; ?><?php echo $url ?>"--}}
-                        {{--                               class="smooth">--}}
-                        {{--                                <i class="<?php echo $icon ?> icon-fw icon-lg mr-2"></i>--}}
-                        {{--                                <span><?php echo $category['title']; ?></span>--}}
-                        {{--                            </a>--}}
-                        {{--                        </li>--}}
-                        {{--                        <?php }--}}
-                        {{--                            continue;--}}
-                        {{--                        } else {--}}
-                        {{--                            if (empty($category['classes']) || (count($category['classes']) == 1 && empty($category['classes'][0])))--}}
-                        {{--                                $icon = get_cate_ico($category['post_content']);--}}
-                        {{--                            else {--}}
-                        {{--                                $classes = preg_grep('/^(fa[b|s]?|io)(-\S+)?$/i', $category['classes']);--}}
-                        {{--                                if (!empty($classes)) {--}}
-                        {{--                                    $icon = implode(" ", $category['classes']);--}}
-                        {{--                                } else {--}}
-                        {{--                                    $icon = '';--}}
-                        {{--                                }--}}
-                        {{--                            }--}}
-                        {{--                        }--}}
-                        {{--                        if (empty($category['submenu'])){ ?>--}}
-                        {{--                        <li class="sidebar-item">--}}
-                        {{--                            <a href="<?php if (is_home() || is_front_page()): ?><?php else: echo home_url()?>/<?php endif; ?>#term-<?php echo $category['object_id'];?>"--}}
-                        {{--                               class="smooth">--}}
-                        {{--                                <i class="<?php echo $icon ?> icon-fw icon-lg mr-2"></i>--}}
-                        {{--                                <span><?php echo $category['title']; ?></span>--}}
-                        {{--                            </a>--}}
-                        {{--                        </li>--}}
-                        {{--                        <?php }else { ?>--}}
-                        {{--                        <li class="sidebar-item">--}}
-                        {{--                            <a href="javascript:;">--}}
-                        {{--                                <i class="<?php echo $icon ?> icon-fw icon-lg mr-2"></i>--}}
-                        {{--                                <span><?php echo $category['title']; ?></span>--}}
-                        {{--                                <i class="iconfont icon-arrow-r-m sidebar-more text-sm"></i>--}}
-                        {{--                            </a>--}}
-                        {{--                            <ul>--}}
-                        {{--                                    <?php foreach ($category['submenu'] as $mid) { ?>--}}
-
-                        {{--                                <li>--}}
-                        {{--                                    <a href="<?php if (is_home() || is_front_page()): ?><?php else: echo home_url()?>/<?php endif; ?>#term-<?php  echo $mid['object_id'] ;?>"--}}
-                        {{--                                       class="smooth"><span><?php echo $mid['title']; ?></span></a>--}}
-                        {{--                                </li>--}}
-                        {{--                                <?php } ?>--}}
-                        {{--                            </ul>--}}
-                        {{--                        </li>--}}
-                        {{--                        <?php }--}}
-                        {{--                        }--}}
-                        {{--                        }--}}
-                        {{--                        ?>--}}
+                        @php
+                            $hn_menus = HnMenu::whereType(Constants::Menu_Type_Data['侧边主菜单'])->get();
+                            $root_menus = $hn_menus->where('pid','=', 0);
+                        @endphp
+                        @foreach($root_menus as $menu)
+                            @php
+                                $sub_menus = $hn_menus->where('pid','=', $menu->id);
+                                $has_child = $sub_menus->count()>0;
+                            @endphp
+                            <li class="sidebar-item">
+                                <a href="{!! $has_child?'javascript:;':'#term-'.$menu->id !!} javascript:;">
+                                    <i class="{!! $menu->icon !!} icon-fw icon-lg mr-2"></i>
+                                    <span>{{ $menu->name }}</span>
+                                    @if($has_child)
+                                        <i class="iconfont icon-arrow-r-m sidebar-more text-sm"></i>
+                                    @endif
+                                </a>
+                                @if($has_child)
+                                    <ul>
+                                        @foreach($sub_menus as $sub_menu)
+                                            <li>
+                                                <a href="#term-{{ $sub_menu->id }}" class="smooth"><span>{{$sub_menu->name}}</span></a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                @endif
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>

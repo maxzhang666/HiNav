@@ -19,7 +19,7 @@ class CreateHnMenuTable extends Migration
             $table->string('pid')->default('');
             $table->string('link')->default('');
             $table->string('type')->default('');
-            $table->string('icon')->default('');
+            $table->string('icon')->default('')->nullable();
             $table->timestamps();
         });
     }

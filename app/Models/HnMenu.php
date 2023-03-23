@@ -41,10 +41,25 @@ class HnMenu extends Model
         $data = [0 => '无'];
         foreach ($list as $item) {
             //dd($item->Id,$id);
-            if ($item->Id == $id) {
+            if ($item->Id == $pid) {
                 continue;
             }
             $data[$item->Id] = $item->name;
+        }
+        return $data;
+    }
+
+    /**
+     * 获取顶级菜单
+     * @param int $id
+     * @return string[]
+     */
+    public static function GetRoots($id = 0): array
+    {
+        $data = [0 => '顶级'];
+//        HnMenu::wherePid(0)->get()
+        foreach (HnMenu::wherePid(0)->get() as $item) {
+            $data[$item->id] = $item->name;
         }
         return $data;
     }
