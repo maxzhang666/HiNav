@@ -11,12 +11,12 @@
         <div class="sidebar-logo border-bottom border-color">
             <div class="logo overflow-hidden">
                 <a href="{{$url}}" class="logo-expanded">
-                    <img src="{{$logo_white}} " height="40" {{$logo_light_class}} alt="{{$title}}">
-                    <img src="{{$logo}}" height="40" {{$logo_class}} alt="{{$title}}">
+                    <img src="{{admin_setting(Constants::Icon_Logo_White)}} " height="40" {!! $logo_light_class !!} alt="{{$title}}">
+                    <img src="{{admin_setting(Constants::Icon_Logo)}}" height="40" {!! $logo_class !!} alt="{{$title}}">
                 </a>
                 <a href="{{$url}}" class="logo-collapsed">
-                    <img src="{{admin_setting(Constants::Icon_Logo_Small_White)}}" height="40" {{$logo_light_class}} alt="{{$title}}">
-                    <img src="{{admin_setting(Constants::Icon_Logo_Small)}}" height="40" {{$logo_class}} alt="{{$title}}">
+                    <img src="{{admin_setting(Constants::Icon_Logo_Small_White)}}" height="40" {!! $logo_light_class !!} alt="{{$title}}">
+                    <img src="{{admin_setting(Constants::Icon_Logo_Small)}}" height="40" {!! $logo_class !!} alt="{{$title}}">
                 </a>
             </div>
         </div>
