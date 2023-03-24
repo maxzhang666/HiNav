@@ -20,4 +20,5 @@ Route::group([
     $router->get('setting/footer_setting', 'SettingController@footer_setting');
     $router->get('setting/color_setting', 'SettingController@color_setting');
     $router->get('setting/icon_setting', 'SettingController@icon_setting');
+    $router->get('setting/content_setting', 'SettingController@content_setting');
 });

@@ -3,6 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Admin\Metrics\Forms\ColorSetting;
+use App\Admin\Metrics\Forms\ContentSetting;
 use App\Admin\Metrics\Forms\FooterSetting;
 use App\Admin\Metrics\Forms\IconSetting;
 use App\Admin\Metrics\Forms\IndexSetting;
@@ -38,5 +39,10 @@ class SettingController extends Controller
     public function icon_setting(Content $content): Content
     {
         return $content->header('图标配置')->description('')->body(new Card(IconSetting::make()));
+    }
+
+    public function content_setting(Content $content): Content
+    {
+        return $content->header('内容设置')->description('')->body(new Card(ContentSetting::make()));
     }
 }

@@ -10,6 +10,9 @@
 @endif
 <div class="page-container">
     @include('layouts.nav')
+    <div class="main-content flex-fill">
+        @yield("content")
+    </div>
 </div>
 </body>
 </html>

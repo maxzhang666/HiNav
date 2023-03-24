@@ -8,8 +8,11 @@
     }
 //    dd($logo_class,$logo_light_class,admin_setting(Constants::Color_Theme));
     $all_menus=HnMenu::all();
-    $hn_menus = $all_menus->where ('type','=', Constants::Menu_Type_Data['侧边主菜单']);
+    $hn_menus = $all_menus->where('type','=', Constants::Menu_Type_Data['侧边主菜单']);
     $top_root_menus = $hn_menus->where('pid','=', 0);
+    foreach ($top_root_menus as &$menu){
+        $menu->sub_menus = $hn_menus->where('pid','=', $menu->id);
+    }
     $bottom_menus = $all_menus->where ('type','=', Constants::Menu_Type_Data['侧边底部菜单']);
 @endphp
 <div id="sidebar" class="sticky sidebar-nav fade <?php echo admin_setting(Constants::Basic_Mini_Nav)==1?'mini-sidebar" style="width: 60px;':''?>">
@@ -30,22 +33,21 @@
             <div class="sidebar-scroll">
                 <div class="sidebar-menu-inner">
                     <ul>
-                        @foreach($top_root_menus as $menu)
+                        @foreach($top_root_menus as $item)
                             @php
-                                $sub_menus = $hn_menus->where('pid','=', $menu->id);
-                                $has_child = $sub_menus->count()>0;
+                                $has_child = $item->sub_menus->count()>0;
                             @endphp
                             <li class="sidebar-item">
-                                <a href="{!! $has_child?'javascript:;':'#term-'.$menu->id !!} javascript:;">
-                                    <i class="{!! $menu->icon !!} icon-fw icon-lg mr-2"></i>
-                                    <span>{{ $menu->name }}</span>
+                                <a href="{!! $has_child?'javascript:;':'#term-'.$item->id !!} javascript:;">
+                                    <i class="{!! $item->icon !!} icon-fw icon-lg mr-2"></i>
+                                    <span>{{ $item->name }}</span>
                                     @if($has_child)
                                         <i class="iconfont icon-arrow-r-m sidebar-more text-sm"></i>
                                     @endif
                                 </a>
                                 @if($has_child)
                                     <ul>
-                                        @foreach($sub_menus as $sub_menu)
+                                        @foreach($item->sub_menus as $sub_menu)
                                             <li>
                                                 <a href="#term-{{ $sub_menu->id }}" class="smooth"><span>{{$sub_menu->name}}</span></a>
                                             </li>
@@ -62,9 +64,9 @@
             <div class="flex-bottom">
                 @if($bottom_menus->count()>0)
                     <ul>
-                        @foreach($bottom_menus as $menu)
-                            <li id="menu-item-{{$menu->id}}" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-17 sidebar-item">
-                                <a href="{{$menu->link}}">{{$menu->name}}</a>
+                        @foreach($bottom_menus as $item)
+                            <li id="menu-item-{{$item->id}}" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-17 sidebar-item">
+                                <a href="{{$item->link}}">{{$item->name}}</a>
                             </li>
                         @endforeach
                     </ul>

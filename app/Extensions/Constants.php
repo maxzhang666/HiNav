@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Extensions;
+
 final class Constants
 {
     #region 站点信息
@@ -20,6 +21,7 @@ final class Constants
         '6' => 6,
         '10' => 10,
     ];
+    const Index_Tab_Parent_Name = 'index_tab_parent_name';
     #endregion
 
     #region 页脚配置
@@ -70,5 +72,9 @@ final class Constants
         '顶部主菜单' => 2,
         '搜索推荐菜单' => 3,
     ];
+    #endregion
+
+    #region 网址配置
+    const Content_Card_Mode = 'content_card_mode';
     #endregion
 }
