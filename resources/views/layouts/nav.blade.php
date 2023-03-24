@@ -5,6 +5,10 @@
         $logo_class = 'class="logo-dark d-none"';
         $logo_light_class = 'class="logo-light"';
     }
+    $all_menus=HnMenu::all();
+    $hn_menus = $all_menus->where ('type','=', Constants::Menu_Type_Data['侧边主菜单']);
+    $top_root_menus = $hn_menus->where('pid','=', 0);
+    $bottom_menus = $all_menus->where ('type','=', Constants::Menu_Type_Data['侧边底部菜单']);
 @endphp
 <div id="sidebar" class="sticky sidebar-nav fade <?php echo admin_setting(Constants::Basic_Mini_Nav)==1?'mini-sidebar" style="width: 60px;':''?>">
     <div class="modal-dialog h-100  sidebar-nav-inner">
@@ -24,11 +28,7 @@
             <div class="sidebar-scroll">
                 <div class="sidebar-menu-inner">
                     <ul>
-                        @php
-                            $hn_menus = HnMenu::whereType(Constants::Menu_Type_Data['侧边主菜单'])->get();
-                            $root_menus = $hn_menus->where('pid','=', 0);
-                        @endphp
-                        @foreach($root_menus as $menu)
+                        @foreach($top_root_menus as $menu)
                             @php
                                 $sub_menus = $hn_menus->where('pid','=', $menu->id);
                                 $has_child = $sub_menus->count()>0;
@@ -58,11 +58,15 @@
         </div>
         <div class="border-top py-2 border-color">
             <div class="flex-bottom">
-                <ul>
-                    <li id="#" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-17 sidebar-item">
-                        <a href="#">底部菜单</a>
-                    </li>
-                </ul>
+                @if($bottom_menus->count()>0)
+                    <ul>
+                        @foreach($bottom_menus as $menu)
+                            <li id="menu-item-{{$menu->id}}" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-17 sidebar-item">
+                                <a href="{{$menu->link}}">{{$menu->name}}</a>
+                            </li>
+                        @endforeach
+                    </ul>
+                @endif
             </div>
         </div>
     </div>

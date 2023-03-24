@@ -17,7 +17,7 @@ class CreateHnMenuTable extends Migration
             $table->increments('id');
             $table->string('name')->default('');
             $table->string('pid')->default('');
-            $table->string('link')->default('');
+            $table->string('link')->default('')->nullable();
             $table->string('type')->default('');
             $table->string('icon')->default('')->nullable();
             $table->integer('sort')->default(0);
