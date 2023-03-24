@@ -1,10 +1,12 @@
 @php
-    use App\Extensions\Constants;use App\Models\HnMenu;$logo_class = '';
+    use App\Extensions\Constants;use App\Models\HnMenu;
+    $logo_class = '';
     $logo_light_class = 'class="d-none"';
-    if(admin_setting('theme_mode')=="grey-mode"){
+    if(admin_setting(Constants::Color_Theme)=="grey_mode"){
         $logo_class = 'class="logo-dark d-none"';
         $logo_light_class = 'class="logo-light"';
     }
+//    dd($logo_class,$logo_light_class,admin_setting(Constants::Color_Theme));
     $all_menus=HnMenu::all();
     $hn_menus = $all_menus->where ('type','=', Constants::Menu_Type_Data['侧边主菜单']);
     $top_root_menus = $hn_menus->where('pid','=', 0);

@@ -48,7 +48,7 @@ final class Constants
 
         'black_mode' => '深色',
         'white_mode' => '亮色',
-        'grey_mode' => '浅灰',
+        'grey_mode' => '亮灰',
     ];
 
     const Color_Full_Loading = 'color_full_loading';
