@@ -25,6 +25,7 @@ final class Constants
     const Index_Search_Position = 'index_search_position';
     const Index_Search_Big = 'index_search_big';
     const Index_Search_Background = 'index_search_background';
+    const Index_Search_Background_Gradual = 'index_search_background_gradual';
 
     const Index_Search_Position_Data = [
         'home' => '首页',
@@ -41,6 +42,8 @@ final class Constants
     const Index_Search_Background_Color1 = 'index_search_background_color1';
     const Index_Search_Background_Color2 = 'index_search_background_color2';
     const Index_Search_Background_Color3 = 'index_search_background_color3';
+    const Index_Search_Background_Img= 'index_search_background_img';
+    const Index_Search_Background_Canvas = 'index_search_background_canvas';
     #endregion
 
     #region 页脚配置

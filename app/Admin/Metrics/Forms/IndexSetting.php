@@ -23,7 +23,15 @@ class IndexSetting extends Form
 
             Constants::Index_Block_Columns,
             Constants::Index_Tab_Parent_Name,
-            Constants::Index_Search_Position
+            Constants::Index_Search_Position,
+            Constants::Index_Search_Big,
+            Constants::Index_Search_Background,
+            Constants::Index_Search_Background_Color1,
+            Constants::Index_Search_Background_Color2,
+            Constants::Index_Search_Background_Color3,
+            Constants::Index_Search_Background_Img,
+            Constants::Index_Search_Background_Canvas,
+            Constants::Index_Search_Background_Gradual
 
         ];
     }
@@ -44,12 +52,29 @@ class IndexSetting extends Form
                 ->when(["home"], function (Form $form) {
                     $form->radio(Constants::Index_Search_Big, '大搜索框')->options(Constants::Data_Switch)->default(0)->help('搜索框大小')
                         ->when(1, function (Form $form) {
-                            $form->checkbox(Constants::Index_Search_Background, '背景样式')->options(Constants::Index_Search_Background_Data)->default(["css-color"])->help('搜索框背景样式');
-
-                            $form->color(Constants::Index_Search_Background_Color1, '背景颜色1')->help('搜索框背景颜色')->default("#ff3a2b");
-                            $form->color(Constants::Index_Search_Background_Color2, '背景颜色2')->help('搜索框背景颜色')->default("#ed17de");
-                            $form->color(Constants::Index_Search_Background_Color3, '背景颜色3')->help('搜索框背景颜色')->default("#f4275e");
+                            $form->radio(Constants::Index_Search_Background, '背景样式')->options(Constants::Index_Search_Background_Data)->default("css-color")->help('搜索框背景样式')
+                                ->when('css-color', function (Form $form) {
+                                    $form->color(Constants::Index_Search_Background_Color1, '背景颜色1')->help('搜索框背景颜色')->default("#ff3a2b");
+                                    $form->color(Constants::Index_Search_Background_Color2, '背景颜色2')->help('搜索框背景颜色')->default("#ed17de");
+                                    $form->color(Constants::Index_Search_Background_Color3, '背景颜色3')->help('搜索框背景颜色')->default("#f4275e");
+                                })
+                                ->when('css-img', function (Form $form) {
+                                    $form->image(Constants::Index_Search_Background_Img, '背景图片')->help('搜索框背景图片')->uniqueName()->autoUpload();
+                                })
+                                ->when('canvas-fx', function (Form $form) {
+                                    $form->radio(Constants::Index_Search_Background_Canvas, '背景特效')->options([
+                                        0 => '随机',
+                                        1 => '1',
+                                        2 => '2',
+                                        3 => '3',
+                                        4 => '4',
+                                        5 => '5',
+                                        6 => '6',
+                                        7 => '7'
+                                    ])->default(0)->help('搜索框背景特效');
+                                });
                         });
+                    $form->switch(Constants::Index_Search_Background_Gradual, '渐变背景')->help('搜索框背景渐变')->default(0);
                 });
         });
 
