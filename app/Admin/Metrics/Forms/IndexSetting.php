@@ -23,6 +23,7 @@ class IndexSetting extends Form
 
             Constants::Index_Block_Columns,
             Constants::Index_Tab_Parent_Name,
+            Constants::Index_Search_Position
 
         ];
     }
@@ -38,6 +39,18 @@ class IndexSetting extends Form
         $this->tab('首页配置', function (Form $form) {
             $form->radio(Constants::Index_Block_Columns, '网址列数')->options(Constants::Index_Block_Columns_Data)->default(4)->help('网址块列表一行显示的个数');
             $form->switch(Constants::Index_Tab_Parent_Name, '显示父级分类')->help('网址块分类名前面显示父级分类名称')->default(0);
+
+            $form->checkbox(Constants::Index_Search_Position, '搜索框位置')->options(Constants::Index_Search_Position_Data)->default(["home"])->help('搜索框显示位置')
+                ->when(["home"], function (Form $form) {
+                    $form->radio(Constants::Index_Search_Big, '大搜索框')->options(Constants::Data_Switch)->default(0)->help('搜索框大小')
+                        ->when(1, function (Form $form) {
+                            $form->checkbox(Constants::Index_Search_Background, '背景样式')->options(Constants::Index_Search_Background_Data)->default(["css-color"])->help('搜索框背景样式');
+
+                            $form->color(Constants::Index_Search_Background_Color1, '背景颜色1')->help('搜索框背景颜色')->default("#ff3a2b");
+                            $form->color(Constants::Index_Search_Background_Color2, '背景颜色2')->help('搜索框背景颜色')->default("#ed17de");
+                            $form->color(Constants::Index_Search_Background_Color3, '背景颜色3')->help('搜索框背景颜色')->default("#f4275e");
+                        });
+                });
         });
 
     }

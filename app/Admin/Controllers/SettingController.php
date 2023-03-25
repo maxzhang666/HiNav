@@ -8,6 +8,7 @@ use App\Admin\Metrics\Forms\ContentSetting;
 use App\Admin\Metrics\Forms\FooterSetting;
 use App\Admin\Metrics\Forms\IconSetting;
 use App\Admin\Metrics\Forms\IndexSetting;
+use App\Admin\Metrics\Forms\OtherSetting;
 use App\Http\Controllers\Controller;
 use Dcat\Admin\Layout\Content;
 use Dcat\Admin\Widgets\Card;
@@ -46,8 +47,14 @@ class SettingController extends Controller
     {
         return $content->header('内容设置')->description('')->body(new Card(ContentSetting::make()));
     }
+
     public function basic_setting(Content $content): Content
     {
         return $content->header('基础设置')->description('')->body(new Card(BasicSetting::make()));
+    }
+
+    public function other_setting(Content $content): Content
+    {
+        return $content->header('其他设置')->description('')->body(new Card(OtherSetting::make()));
     }
 }

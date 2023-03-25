@@ -22,6 +22,25 @@ final class Constants
         '10' => 10,
     ];
     const Index_Tab_Parent_Name = 'index_tab_parent_name';
+    const Index_Search_Position = 'index_search_position';
+    const Index_Search_Big = 'index_search_big';
+    const Index_Search_Background = 'index_search_background';
+
+    const Index_Search_Position_Data = [
+        'home' => '首页',
+        'top' => '顶部',
+        'tool' => '工具栏',
+    ];
+    const Index_Search_Background_Data = [
+        'no-bg' => '无背景',
+        'css-color' => '颜色',
+        'css-img' => '自定义图片',
+        'css-bing' => 'bing 每日图片',
+        'canvas-fx' => 'canvas 特效',
+    ];
+    const Index_Search_Background_Color1 = 'index_search_background_color1';
+    const Index_Search_Background_Color2 = 'index_search_background_color2';
+    const Index_Search_Background_Color3 = 'index_search_background_color3';
     #endregion
 
     #region 页脚配置
@@ -79,8 +98,18 @@ final class Constants
     #region 网址配置
     const Content_Card_Mode = 'content_card_mode';
     #endregion
+
+    #region 其他配置
+    const Other_Weather = 'other_weather';
+    const Other_Weather_Position = 'other_weather_position';
+    const Other_Hitokoto = 'other_hitokoto';
+    const Other_Weather_Position_Data = [
+        'header' => '顶部',
+        'footer' => '底部小工具',
+    ];
+    #endregion
     const Data_Switch = [
-        0 => '关闭',
         1 => '开启',
+        0 => '关闭',
     ];
 }

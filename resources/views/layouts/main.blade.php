@@ -11,6 +11,7 @@
 <div class="page-container">
     @include('layouts.nav')
     <div class="main-content flex-fill">
+        @include('layouts.header-banner')
         @yield("content")
     </div>
 </div>

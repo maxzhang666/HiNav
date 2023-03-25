@@ -87,6 +87,15 @@ Admin::menu(function (Menu $menu) {
             'permission_id' => 'test', // 与权限绑定
             'roles' => 'test-roles', // 与角色绑定
         ],
+        [
+            'id' => 17,
+            'title' => '其他配置',
+            'icon' => 'fa-circle-o',
+            'uri' => 'setting/other_setting',
+            'parent_id' => 1,
+            'permission_id' => 'test',
+            'roles' => 'test-roles',
+        ],
 
 
         //导航设置
