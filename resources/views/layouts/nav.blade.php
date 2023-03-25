@@ -38,7 +38,7 @@
                                 $has_child = $item->sub_menus->count()>0;
                             @endphp
                             <li class="sidebar-item">
-                                <a href="{!! $has_child?'javascript:;':'#term-'.$item->id !!} javascript:;">
+                                <a href="{!! $has_child?'javascript:;':'#term-'.$item->id !!}">
                                     <i class="{!! $item->icon !!} icon-fw icon-lg mr-2"></i>
                                     <span>{{ $item->name }}</span>
                                     @if($has_child)

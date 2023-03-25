@@ -21,4 +21,5 @@ Route::group([
     $router->get('setting/color_setting', 'SettingController@color_setting');
     $router->get('setting/icon_setting', 'SettingController@icon_setting');
     $router->get('setting/content_setting', 'SettingController@content_setting');
+    $router->get('setting/basic_setting', 'SettingController@basic_setting');
 });

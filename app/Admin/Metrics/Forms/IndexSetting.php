@@ -24,7 +24,6 @@ class IndexSetting extends Form
             Constants::Index_Block_Columns,
             Constants::Index_Tab_Parent_Name,
 
-            Constants::Basic_Mini_Nav,
         ];
     }
 
@@ -38,7 +37,6 @@ class IndexSetting extends Form
         });
         $this->tab('首页配置', function (Form $form) {
             $form->radio(Constants::Index_Block_Columns, '网址列数')->options(Constants::Index_Block_Columns_Data)->default(4)->help('网址块列表一行显示的个数');
-            $form->switch(Constants::Basic_Mini_Nav, '侧边栏折叠')->help('侧边栏折叠')->default(0);
             $form->switch(Constants::Index_Tab_Parent_Name, '显示父级分类')->help('网址块分类名前面显示父级分类名称')->default(0);
         });
 

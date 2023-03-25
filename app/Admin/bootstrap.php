@@ -35,7 +35,7 @@ Admin::menu(function (Menu $menu) {
         ],
         [
             'id' => 11, // 此id只要保证当前的数组中是唯一的即可
-            'title' => '基础配置',
+            'title' => '首页信息',
             'icon' => 'fa-circle-o',
             'uri' => 'setting',
             'parent_id' => 1,
@@ -74,6 +74,15 @@ Admin::menu(function (Menu $menu) {
             'title' => '内容配置',
             'icon' => 'fa-circle-o',
             'uri' => 'setting/content_setting',
+            'parent_id' => 1,
+            'permission_id' => 'test', // 与权限绑定
+            'roles' => 'test-roles', // 与角色绑定
+        ],
+        [
+            'id' => 16, // 此id只要保证当前的数组中是唯一的即可
+            'title' => '基础配置',
+            'icon' => 'fa-circle-o',
+            'uri' => 'setting/basic_setting',
             'parent_id' => 1,
             'permission_id' => 'test', // 与权限绑定
             'roles' => 'test-roles', // 与角色绑定

@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Admin\Metrics\Forms\BasicSetting;
 use App\Admin\Metrics\Forms\ColorSetting;
 use App\Admin\Metrics\Forms\ContentSetting;
 use App\Admin\Metrics\Forms\FooterSetting;
@@ -23,7 +24,7 @@ class SettingController extends Controller
      */
     public function index(Content $content): Content
     {
-        return $content->header('首页配置')->description('')->body(new Card(IndexSetting::make()));
+        return $content->header('首页信息')->description('')->body(new Card(IndexSetting::make()));
     }
 
     public function footer_setting(Content $content): Content
@@ -44,5 +45,9 @@ class SettingController extends Controller
     public function content_setting(Content $content): Content
     {
         return $content->header('内容设置')->description('')->body(new Card(ContentSetting::make()));
+    }
+    public function basic_setting(Content $content): Content
+    {
+        return $content->header('基础设置')->description('')->body(new Card(BasicSetting::make()));
     }
 }

@@ -39,6 +39,8 @@ final class Constants
 
     #region 基础配置
     const Basic_Mini_Nav = 'basic_mini_nav';
+    const Basic_Page_Detail = 'basic_page_detail';
+    const Basic_To_Go = 'basic_to_go';
     #endregion
 
     #region 颜色配置
@@ -77,4 +79,8 @@ final class Constants
     #region 网址配置
     const Content_Card_Mode = 'content_card_mode';
     #endregion
+    const Data_Switch = [
+        0 => '关闭',
+        1 => '开启',
+    ];
 }
