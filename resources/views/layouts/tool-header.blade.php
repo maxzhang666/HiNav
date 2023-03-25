@@ -43,7 +43,7 @@
             <iframe class="canvas-bg" scrolling="no" sandbox="allow-scripts allow-same-origin" src="{{route('tool.canvas')}}"></iframe>
         @endif
         @if(in_array("home",$searchPosition))
-            {{--引入搜索模块--}}
+            @include('weight.search.big')
         @else
             <div class="no-search my-2 p-1"></div>
 @endif

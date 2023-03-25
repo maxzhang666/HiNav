@@ -42,7 +42,7 @@ final class Constants
     const Index_Search_Background_Color1 = 'index_search_background_color1';
     const Index_Search_Background_Color2 = 'index_search_background_color2';
     const Index_Search_Background_Color3 = 'index_search_background_color3';
-    const Index_Search_Background_Img= 'index_search_background_img';
+    const Index_Search_Background_Img = 'index_search_background_img';
     const Index_Search_Background_Canvas = 'index_search_background_canvas';
     #endregion
 
@@ -115,4 +115,249 @@ final class Constants
         1 => '开启',
         0 => '关闭',
     ];
+
+    const Data_Search_List = [
+        [
+            'id' => 'group-a',
+            'name' => '常用',
+            'default' => 'type-baidu',
+            'list' => [
+                [
+                    'name' => '百度',
+                    'placeholder' => '百度一下',
+                    'id' => 'type-baidu',
+                    'url' => 'https://www.baidu.com/s?wd=',
+                ],
+                [
+                    'name' => 'Google',
+                    'placeholder' => '谷歌两下',
+                    'id' => 'type-google',
+                    'url' => 'https://www.google.com/search?q=',
+                ],
+//                [
+//                    'name' => '站内',
+//                    'placeholder' => '站内搜索',
+//                    'id' => 'type-zhannei',
+//                    'url' => home_url() . '/?post_type=sites&s=',
+//                ],
+                [
+                    'name' => '淘宝',
+                    'placeholder' => '淘宝',
+                    'id' => 'type-taobao',
+                    'url' => 'https://s.taobao.com/search?q=',
+                ],
+                [
+                    'name' => 'Bing',
+                    'placeholder' => '微软Bing搜索',
+                    'id' => 'type-bing',
+                    'url' => 'https://cn.bing.com/search?q=',
+                ],
+            ]
+        ],
+        [
+            'id' => 'group-b',
+            'name' => '搜索',
+            'default' => 'type-baidu1',
+            'list' => [
+                [
+                    'name' => '百度',
+                    'placeholder' => '百度一下',
+                    'id' => 'type-baidu1',
+                    'url' => 'https://www.baidu.com/s?wd=',
+                ],
+                [
+                    'name' => 'Google',
+                    'placeholder' => '谷歌两下',
+                    'id' => 'type-google1',
+                    'url' => 'https://www.google.com/search?q=',
+                ],
+                [
+                    'name' => '360',
+                    'placeholder' => '360好搜',
+                    'id' => 'type-360',
+                    'url' => 'https://www.so.com/s?q=',
+                ],
+                [
+                    'name' => '搜狗',
+                    'placeholder' => '搜狗搜索',
+                    'id' => 'type-sogo',
+                    'url' => 'https://www.sogou.com/web?query=',
+                ],
+                [
+                    'name' => 'Bing',
+                    'placeholder' => '微软Bing搜索',
+                    'id' => 'type-bing1',
+                    'url' => 'https://cn.bing.com/search?q=',
+                ],
+                [
+                    'name' => '神马',
+                    'placeholder' => 'UC移动端搜索',
+                    'id' => 'type-sm',
+                    'url' => 'https://yz.m.sm.cn/s?q=',
+                ],
+            ]
+        ],
+        [
+            'id' => 'group-c',
+            'name' => '工具',
+            'default' => 'type-br',
+            'list' => [
+                [
+                    'name' => '权重查询',
+                    'placeholder' => '请输入网址(不带http://)',
+                    'id' => 'type-br',
+                    'url' => 'http://rank.chinaz.com/all/',
+                ],
+                [
+                    'name' => '友链检测',
+                    'placeholder' => '请输入网址(不带http://)',
+                    'id' => 'type-links',
+                    'url' => 'http://link.chinaz.com/',
+                ],
+                [
+                    'name' => '备案查询',
+                    'placeholder' => '请输入网址(不带http://)',
+                    'id' => 'type-icp',
+                    'url' => 'https://icp.aizhan.com/',
+                ],
+                [
+                    'name' => 'PING检测',
+                    'placeholder' => '请输入网址(不带http://)',
+                    'id' => 'type-ping',
+                    'url' => 'http://ping.chinaz.com/',
+                ],
+                [
+                    'name' => '死链检测',
+                    'placeholder' => '请输入网址(不带http://)',
+                    'id' => 'type-404',
+                    'url' => 'http://tool.chinaz.com/Links/?DAddress=',
+                ],
+                [
+                    'name' => '关键词挖掘',
+                    'placeholder' => '请输入关键词',
+                    'id' => 'type-ciku',
+                    'url' => 'http://www.ciku5.com/s?wd=',
+                ],
+            ]
+        ],
+        [
+            'id' => 'group-d',
+            'name' => '社区',
+            'default' => 'type-zhihu',
+            'list' => [
+                [
+                    'name' => '知乎',
+                    'placeholder' => '知乎',
+                    'id' => 'type-zhihu',
+                    'url' => 'https://www.zhihu.com/search?type=content&q=',
+                ],
+                [
+                    'name' => '微信',
+                    'placeholder' => '微信',
+                    'id' => 'type-wechat',
+                    'url' => 'http://weixin.sogou.com/weixin?type=2&query=',
+                ],
+                [
+                    'name' => '微博',
+                    'placeholder' => '微博',
+                    'id' => 'type-weibo',
+                    'url' => 'http://s.weibo.com/weibo/',
+                ],
+                [
+                    'name' => '豆瓣',
+                    'placeholder' => '豆瓣',
+                    'id' => 'type-douban',
+                    'url' => 'https://www.douban.com/search?q=',
+                ],
+                [
+                    'name' => '搜外问答',
+                    'placeholder' => 'SEO问答社区',
+                    'id' => 'type-why',
+                    'url' => 'https://ask.seowhy.com/search/?q=',
+                ],
+            ]
+        ],
+        [
+            'id' => 'group-e',
+            'name' => '生活',
+            'default' => 'type-taobao1',
+            'list' => [
+                [
+                    'name' => '淘宝',
+                    'placeholder' => '淘宝',
+                    'id' => 'type-taobao1',
+                    'url' => 'https://s.taobao.com/search?q=',
+                ],
+                [
+                    'name' => '京东',
+                    'placeholder' => '京东',
+                    'id' => 'type-jd',
+                    'url' => 'https://search.jd.com/Search?keyword=',
+                ],
+                [
+                    'name' => '下厨房',
+                    'placeholder' => '下厨房',
+                    'id' => 'type-xiachufang',
+                    'url' => 'http://www.xiachufang.com/search/?keyword=',
+                ],
+                [
+                    'name' => '香哈菜谱',
+                    'placeholder' => '香哈菜谱',
+                    'id' => 'type-xiangha',
+                    'url' => 'https://www.xiangha.com/so/?q=caipu&s=',
+                ],
+                [
+                    'name' => '12306',
+                    'placeholder' => '12306',
+                    'id' => 'type-12306',
+                    'url' => 'http://www.12306.cn/?',
+                ],
+                [
+                    'name' => '快递100',
+                    'placeholder' => '快递100',
+                    'id' => 'type-kd100',
+                    'url' => 'http://www.kuaidi100.com/?',
+                ],
+                [
+                    'name' => '去哪儿',
+                    'placeholder' => '去哪儿',
+                    'id' => 'type-qunar',
+                    'url' => 'https://www.qunar.com/?',
+                ],
+            ]
+        ],
+        [
+            'id' => 'group-f',
+            'name' => '求职',
+            'default' => 'type-zhaopin',
+            'list' => [
+                [
+                    'name' => '智联招聘',
+                    'placeholder' => '智联招聘',
+                    'id' => 'type-zhaopin',
+                    'url' => 'https://sou.zhaopin.com/jobs/searchresult.ashx?kw=',
+                ],
+                [
+                    'name' => '前程无忧',
+                    'placeholder' => '前程无忧',
+                    'id' => 'type-51job',
+                    'url' => 'https://search.51job.com/?',
+                ],
+                [
+                    'name' => '拉钩网',
+                    'placeholder' => '拉钩网',
+                    'id' => 'type-lagou',
+                    'url' => 'https://www.lagou.com/jobs/list_',
+                ],
+                [
+                    'name' => '猎聘网',
+                    'placeholder' => '猎聘网',
+                    'id' => 'type-liepin',
+                    'url' => 'https://www.liepin.com/zhaopin/?key=',
+                ],
+            ]
+        ],
+
+    ];
+
 }
