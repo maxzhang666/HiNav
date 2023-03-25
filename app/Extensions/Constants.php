@@ -22,6 +22,11 @@ final class Constants
         '10' => 10,
     ];
     const Index_Tab_Parent_Name = 'index_tab_parent_name';
+
+    const Index_Notice ='index_notice';
+    const Index_Notice_Show = 'index_notice_show';
+    const Index_Notice_Show_Num = 'index_notice_show_num';
+
     const Index_Search_Position = 'index_search_position';
     const Index_Search_Big = 'index_search_big';
     const Index_Search_Background = 'index_search_background';
@@ -359,5 +364,6 @@ final class Constants
         ],
 
     ];
+
 
 }
