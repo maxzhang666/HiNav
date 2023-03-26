@@ -66,7 +66,7 @@ class HnMenu extends Model
         return $data;
     }
 
-    public static function GetPids($pid = -1): array
+    public static function GetPids($pid = -1, $needRoot = true): array
     {
         $list = [];
         if ($pid == -1) {
@@ -75,9 +75,13 @@ class HnMenu extends Model
             $list = HnMenu::wherePid($pid)->get();
         }
 
-        $data = [0 => '顶级'];
+        $data = [];
+        if ($needRoot) {
+            $data = [0 => '顶级'];
+        }
         foreach ($list as $item) {
-            $data[$item->Id] = $item->name;
+            $hasChild = $list->where('pid', $item->id)->count() > 0;
+            $data[$item->id] = $item->name . '(' . ($hasChild ? '有子级' : '无') . ')';
         }
         return $data;
     }

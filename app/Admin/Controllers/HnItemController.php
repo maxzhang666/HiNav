@@ -3,6 +3,8 @@
 namespace App\Admin\Controllers;
 
 use App\Admin\Repositories\HnItem;
+use App\Extensions\Constants;
+use App\Models\HnMenu;
 use Dcat\Admin\Form;
 use Dcat\Admin\Grid;
 use Dcat\Admin\Http\Controllers\AdminController;
@@ -10,6 +12,13 @@ use Dcat\Admin\Show;
 
 class HnItemController extends AdminController
 {
+    protected $description = [
+        'index' => '列表-不可选有子级的分类作为网址分类',
+        'show' => '详情',
+        'edit' => '编辑-不可选有子级的分类作为网址分类',
+        'create' => '创建',
+    ];
+
     /**
      * Make a grid builder.
      *
@@ -18,12 +27,14 @@ class HnItemController extends AdminController
     protected function grid()
     {
         return Grid::make(new HnItem(), function (Grid $grid) {
+
+
             $grid->column('id')->sortable();
-            $grid->column('sort', '排序')->editable();
+            $grid->column('sort', '排序')->editable()->sortable();
             $grid->column('name');
-//            $grid->column('desc');
-            $grid->column('desc_min', '一句话简介');
-            $grid->column('type', '类型')->using([1 => '网址', 2 => '公众号/小程序']);
+            $grid->column('cat', '分类')->select(HnMenu::GetPids(-1, false))->width(200);
+            $grid->column('desc_min', '一句话简介')->limit(20);
+            $grid->column('type', '类型')->using(Constants::Data_HnItem_Type);
             $grid->column('icon', '图标')->display(function ($icon) {
                 if (empty($icon)) {
                     return '自动';
@@ -36,13 +47,18 @@ class HnItemController extends AdminController
             $grid->column('official_link');
             $grid->column('language');
             $grid->column('country');
-            $grid->column('created_at');
-            $grid->column('updated_at')->sortable();
+
+            $grid->enableDialogCreate();
+            $grid->showQuickEditButton();
+            $grid->disableEditButton();
+            $grid->disableViewButton();
 
             $grid->filter(function (Grid\Filter $filter) {
                 $filter->equal('id');
-
+                $filter->equal('cat', '分类')->select(HnMenu::GetPids(-1, false));
             });
+
+            $grid->simplePaginate();
         });
     }
 
@@ -82,19 +98,24 @@ class HnItemController extends AdminController
         return Form::make(new HnItem(), function (Form $form) {
             $form->display('id');
             $form->text('name');
+            $form->select('cat', '分类')->options(HnMenu::GetPids(-1, false))->required();
             $form->text('desc');
             $form->text('desc_min');
-            $form->text('type');
+            $form->radio('type', '导航类型')->options(Constants::Data_HnItem_Type)->default(1)
+                ->when(3, function (Form $form) {
+                    $form->text('qrcode');
+                    $form->text('official_link');
+                });
             $form->text('link');
+            $form->text('icon')->help('留空则自动获取');
             $form->text('bak_link');
-            $form->text('qrcode');
-            $form->text('official_link');
+
             $form->text('language')->default('中文');
             $form->text('country')->default('中国');
             $form->number('sort')->default(0);
 
-            $form->display('created_at');
-            $form->display('updated_at');
+//            $form->display('created_at');
+//            $form->display('updated_at');
         });
     }
 }

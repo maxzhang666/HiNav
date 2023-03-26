@@ -374,5 +374,10 @@ final class Constants
 
     ];
 
+    const Data_HnItem_Type = [
+        1 => '网址',
+        2 => '公众号/小程序',
+        3 => 'APP'
+    ];
 
 }

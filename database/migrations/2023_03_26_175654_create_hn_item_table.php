@@ -16,6 +16,7 @@ class CreateHnItemTable extends Migration
         Schema::create('hn_item', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->default('')->comment('名称');
+            $table->integer('cat')->comment('所属分类');
             $table->string('desc')->default('')->comment('简介');
             $table->string('desc_min')->default('')->comment('一句话简介');
             $table->string('type')->default('')->comment('类型，1网址2公众号/小程序');
