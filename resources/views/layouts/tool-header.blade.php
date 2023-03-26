@@ -38,7 +38,7 @@
            $style = 'style="background-image: url('.$imgurl.')"';
        }
     @endphp
-    <div class="header-big  {!! $padding !!} {!! $gradual !!} {!! admin_setting(Constants::Index_Search_Background) !!}  mb-4" {!! $style !!}>;
+    <div class="header-big  {!! $padding !!} {!! $gradual !!} {!! admin_setting(Constants::Index_Search_Background) !!}  mb-4" {!! $style !!}>
         @if($searchBackground=='canvas-fx')
             <iframe class="canvas-bg" scrolling="no" sandbox="allow-scripts allow-same-origin" src="{{route('tool.canvas')}}"></iframe>
         @endif
@@ -48,7 +48,9 @@
             <div class="no-search my-2 p-1"></div>
         @endif
         {{--                公告--}}
-        <div class="bulletin-big mx-3 mx-md-0">';
+        <div class="bulletin-big mx-3 mx-md-0">
             @include('weight.notice')
         </div>
+    </div>
+@else
 @endif
