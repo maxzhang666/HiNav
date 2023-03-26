@@ -110,7 +110,16 @@ Admin::menu(function (Menu $menu) {
         ],
         [
             'id' => 21, // 此id只要保证当前的数组中是唯一的即可
-            'title' => '菜单设置',
+            'title' => '公告管理',
+            'icon' => 'fa-circle-o',
+            'uri' => 'hn_notice',
+            'parent_id' => 2,
+            'permission_id' => 'test', // 与权限绑定
+            'roles' => 'test-roles', // 与角色绑定
+        ],
+        [
+            'id' => 22, // 此id只要保证当前的数组中是唯一的即可
+            'title' => '菜单管理',
             'icon' => 'fa-circle-o',
             'uri' => 'hn_menu',
             'parent_id' => 2,

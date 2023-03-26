@@ -13,6 +13,7 @@ Route::group([
 ], function (Router $router) {
 
     $router->resource('hn_menu', 'HnMenuController');
+    $router->resource('hn_notice', 'HnNoticeController');
 
 
     $router->get('/', 'HomeController@index');

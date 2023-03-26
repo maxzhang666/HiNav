@@ -1202,8 +1202,6 @@ HTML,
 </body>
 </html>
 HTML
-
-
         ];
 
         return response(admin_setting(Constants::Index_Search_Background_Canvas, 0) == 0 ? $html[rand(1, 7)] : $html[admin_setting(Constants::Index_Search_Background_Canvas, 1)]);
