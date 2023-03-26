@@ -37,6 +37,12 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|HnItem whereQrcode($value)
  * @method static \Illuminate\Database\Eloquent\Builder|HnItem whereType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|HnItem whereUpdatedAt($value)
+ * @property string|null $icon 图标
+ * @property int $sort 排序
+ * @property int $cat 所属分类
+ * @method static \Illuminate\Database\Eloquent\Builder|HnItem whereCat($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|HnItem whereIcon($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|HnItem whereSort($value)
  * @mixin \Eloquent
  */
 class HnItem extends Model

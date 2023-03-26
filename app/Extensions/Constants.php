@@ -13,7 +13,16 @@ final class Constants
     #endregion
 
     #region 首页配置
+    const Index_Card_Prompt = 'index_card_prompt';
+    const Index_Card_Prompt_Data = [
+        'null' => '无',
+        'url' => '链接',
+        'summary' => '简介',
+        'qr' => '二维码',
+    ];
     const Index_Block_Columns = 'index_block_columns';
+    const Index_Site_Show_Num = 'index_site_show_num';
+    const Index_Two_Columns_For_Mini = 'index_two_columns_for_mini';
     const Index_Block_Columns_Data = [
         '2' => 2,
         '3' => 3,
@@ -68,6 +77,8 @@ final class Constants
     const Basic_Mini_Nav = 'basic_mini_nav';
     const Basic_Page_Detail = 'basic_page_detail';
     const Basic_To_Go = 'basic_to_go';
+    const Basic_New_Window = 'basic_new_window';
+    const Basic_Is_Nofollow = 'basic_is_nofollow';
     #endregion
 
     #region 颜色配置
@@ -111,6 +122,8 @@ final class Constants
     const Other_Weather = 'other_weather';
     const Other_Weather_Position = 'other_weather_position';
     const Other_Hitokoto = 'other_hitokoto';
+    const Other_QrCode_Api = 'other_qr_code_api';
+    const Other_Random_Head_Img = 'other_random_head_img';
     const Other_Weather_Position_Data = [
         'header' => '顶部',
         'footer' => '底部小工具',

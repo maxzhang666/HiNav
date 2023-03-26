@@ -24,9 +24,9 @@ class ContentSetting extends Form
     {
         $this->tab('网址设置', function (Form $form) {
             $form->radio(Constants::Content_Card_Mode, '卡片样式')->options([
-                'max' => "<img src='" . asset('asset/imgs/op-site-c-max.jpg') . "' alt='max'>",
-                'min' => "<img src='" . asset('asset/imgs/op-site-c-min.jpg') . "' alt='min'>",
-                'def' => "<img src='" . asset('asset/imgs/op-site-c-def.jpg') . "' alt='def'>",
+                'max' => "大<img src='" . asset('asset/imgs/op-site-c-max.jpg') . "' alt='max'>",
+                'min' => "小<img src='" . asset('asset/imgs/op-site-c-min.jpg') . "' alt='min'>",
+                'def' => "默认<img src='" . asset('asset/imgs/op-site-c-def.jpg') . "' alt='def'>",
             ])->default('def')->help('选择首页网址块显示风格：大、中、小');
         });
 
