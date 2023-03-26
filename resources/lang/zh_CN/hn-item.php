@@ -1,4 +1,4 @@
-<?php 
+<?php
 return [
     'labels' => [
         'HnItem' => 'HnItem',
@@ -10,6 +10,7 @@ return [
         'desc_min' => '一句话简介',
         'type' => '类型，1网址2公众号/小程序',
         'link' => '地址',
+        'icon' => '图标',
         'bak_link' => '备用地址',
         'qrcode' => '二维码',
         'official_link' => '官方站点',

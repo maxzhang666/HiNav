@@ -14,6 +14,7 @@ Route::group([
 
     $router->resource('hn_menu', 'HnMenuController');
     $router->resource('hn_notice', 'HnNoticeController');
+    $router->resource('hn_item', 'HnItemController');
 
 
     $router->get('/', 'HomeController@index');

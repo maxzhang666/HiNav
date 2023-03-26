@@ -19,10 +19,17 @@ class HnItemController extends AdminController
     {
         return Grid::make(new HnItem(), function (Grid $grid) {
             $grid->column('id')->sortable();
+            $grid->column('sort', '排序')->editable();
             $grid->column('name');
-            $grid->column('desc');
-            $grid->column('desc_min');
-            $grid->column('type');
+//            $grid->column('desc');
+            $grid->column('desc_min', '一句话简介');
+            $grid->column('type', '类型')->using([1 => '网址', 2 => '公众号/小程序']);
+            $grid->column('icon', '图标')->display(function ($icon) {
+                if (empty($icon)) {
+                    return '自动';
+                }
+                return "<img src='$icon' width='50' height='50'>";
+            });
             $grid->column('link');
             $grid->column('bak_link');
             $grid->column('qrcode');
@@ -82,8 +89,9 @@ class HnItemController extends AdminController
             $form->text('bak_link');
             $form->text('qrcode');
             $form->text('official_link');
-            $form->text('language');
-            $form->text('country');
+            $form->text('language')->default('中文');
+            $form->text('country')->default('中国');
+            $form->number('sort')->default(0);
 
             $form->display('created_at');
             $form->display('updated_at');

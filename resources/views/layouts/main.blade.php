@@ -45,6 +45,7 @@
             @endif
             @yield("content")
         </div>
+        @include('layouts.footer')
     </div>
 </div>
 <script type='text/javascript' id='popper-js-extra'>
