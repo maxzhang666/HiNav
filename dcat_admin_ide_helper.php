@@ -43,9 +43,20 @@ namespace Dcat\Admin {
      * @property Grid\Column|Collection payload
      * @property Grid\Column|Collection exception
      * @property Grid\Column|Collection failed_at
-     * @property Grid\Column|Collection pid
+     * @property Grid\Column|Collection desc
+     * @property Grid\Column|Collection desc_min
      * @property Grid\Column|Collection link
+     * @property Grid\Column|Collection bak_link
+     * @property Grid\Column|Collection qrcode
+     * @property Grid\Column|Collection official_link
+     * @property Grid\Column|Collection language
+     * @property Grid\Column|Collection country
+     * @property Grid\Column|Collection pid
      * @property Grid\Column|Collection sort
+     * @property Grid\Column|Collection content
+     * @property Grid\Column|Collection publish_date
+     * @property Grid\Column|Collection views
+     * @property Grid\Column|Collection likes
      * @property Grid\Column|Collection email
      * @property Grid\Column|Collection token
      * @property Grid\Column|Collection tokenable_type
@@ -85,9 +96,20 @@ namespace Dcat\Admin {
      * @method Grid\Column|Collection payload(string $label = null)
      * @method Grid\Column|Collection exception(string $label = null)
      * @method Grid\Column|Collection failed_at(string $label = null)
-     * @method Grid\Column|Collection pid(string $label = null)
+     * @method Grid\Column|Collection desc(string $label = null)
+     * @method Grid\Column|Collection desc_min(string $label = null)
      * @method Grid\Column|Collection link(string $label = null)
+     * @method Grid\Column|Collection bak_link(string $label = null)
+     * @method Grid\Column|Collection qrcode(string $label = null)
+     * @method Grid\Column|Collection official_link(string $label = null)
+     * @method Grid\Column|Collection language(string $label = null)
+     * @method Grid\Column|Collection country(string $label = null)
+     * @method Grid\Column|Collection pid(string $label = null)
      * @method Grid\Column|Collection sort(string $label = null)
+     * @method Grid\Column|Collection content(string $label = null)
+     * @method Grid\Column|Collection publish_date(string $label = null)
+     * @method Grid\Column|Collection views(string $label = null)
+     * @method Grid\Column|Collection likes(string $label = null)
      * @method Grid\Column|Collection email(string $label = null)
      * @method Grid\Column|Collection token(string $label = null)
      * @method Grid\Column|Collection tokenable_type(string $label = null)
@@ -132,9 +154,20 @@ namespace Dcat\Admin {
      * @property Show\Field|Collection payload
      * @property Show\Field|Collection exception
      * @property Show\Field|Collection failed_at
-     * @property Show\Field|Collection pid
+     * @property Show\Field|Collection desc
+     * @property Show\Field|Collection desc_min
      * @property Show\Field|Collection link
+     * @property Show\Field|Collection bak_link
+     * @property Show\Field|Collection qrcode
+     * @property Show\Field|Collection official_link
+     * @property Show\Field|Collection language
+     * @property Show\Field|Collection country
+     * @property Show\Field|Collection pid
      * @property Show\Field|Collection sort
+     * @property Show\Field|Collection content
+     * @property Show\Field|Collection publish_date
+     * @property Show\Field|Collection views
+     * @property Show\Field|Collection likes
      * @property Show\Field|Collection email
      * @property Show\Field|Collection token
      * @property Show\Field|Collection tokenable_type
@@ -174,9 +207,20 @@ namespace Dcat\Admin {
      * @method Show\Field|Collection payload(string $label = null)
      * @method Show\Field|Collection exception(string $label = null)
      * @method Show\Field|Collection failed_at(string $label = null)
-     * @method Show\Field|Collection pid(string $label = null)
+     * @method Show\Field|Collection desc(string $label = null)
+     * @method Show\Field|Collection desc_min(string $label = null)
      * @method Show\Field|Collection link(string $label = null)
+     * @method Show\Field|Collection bak_link(string $label = null)
+     * @method Show\Field|Collection qrcode(string $label = null)
+     * @method Show\Field|Collection official_link(string $label = null)
+     * @method Show\Field|Collection language(string $label = null)
+     * @method Show\Field|Collection country(string $label = null)
+     * @method Show\Field|Collection pid(string $label = null)
      * @method Show\Field|Collection sort(string $label = null)
+     * @method Show\Field|Collection content(string $label = null)
+     * @method Show\Field|Collection publish_date(string $label = null)
+     * @method Show\Field|Collection views(string $label = null)
+     * @method Show\Field|Collection likes(string $label = null)
      * @method Show\Field|Collection email(string $label = null)
      * @method Show\Field|Collection token(string $label = null)
      * @method Show\Field|Collection tokenable_type(string $label = null)

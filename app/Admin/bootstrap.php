@@ -96,6 +96,15 @@ Admin::menu(function (Menu $menu) {
             'permission_id' => 'test',
             'roles' => 'test-roles',
         ],
+        [
+            'id' => 18,
+            'title' => '广告配置',
+            'icon' => 'fa-circle-o',
+            'uri' => 'setting/ads_setting',
+            'parent_id' => 1,
+            'permission_id' => 'test',
+            'roles' => 'test-roles',
+        ],
 
 
         //导航设置

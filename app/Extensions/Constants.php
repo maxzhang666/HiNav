@@ -23,7 +23,7 @@ final class Constants
     ];
     const Index_Tab_Parent_Name = 'index_tab_parent_name';
 
-    const Index_Notice ='index_notice';
+    const Index_Notice = 'index_notice';
     const Index_Notice_Show = 'index_notice_show';
     const Index_Notice_Show_Num = 'index_notice_show_num';
 
@@ -115,6 +115,15 @@ final class Constants
         'header' => '顶部',
         'footer' => '底部小工具',
     ];
+    #endregion
+
+    #region 广告配置
+    const Ad_Index_Top = 'ad_index_top';
+    const Ad_Index_Top_One = 'ad_index_top_one';
+    const Ad_Index_Top_One_Content = 'ad_index_top_one_content';
+    const Ad_Index_Top_Two = 'ad_index_top_two';
+    const Ad_Index_Top_Two_Content = 'ad_index_top_two_content';
+    const Ad_Index_Bottom = 'ad_index_bottom';
     #endregion
     const Data_Switch = [
         1 => '开启',

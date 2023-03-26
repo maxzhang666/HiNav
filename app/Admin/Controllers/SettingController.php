@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Admin\Metrics\Forms\AdsSetting;
 use App\Admin\Metrics\Forms\BasicSetting;
 use App\Admin\Metrics\Forms\ColorSetting;
 use App\Admin\Metrics\Forms\ContentSetting;
@@ -56,5 +57,10 @@ class SettingController extends Controller
     public function other_setting(Content $content): Content
     {
         return $content->header('其他设置')->description('')->body(new Card(OtherSetting::make()));
+    }
+
+    public function ads_setting(Content $content): Content
+    {
+        return $content->header('广告设置')->description('')->body(new Card(AdsSetting::make()));
     }
 }

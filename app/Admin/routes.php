@@ -24,4 +24,5 @@ Route::group([
     $router->get('setting/content_setting', 'SettingController@content_setting');
     $router->get('setting/basic_setting', 'SettingController@basic_setting');
     $router->get('setting/other_setting', 'SettingController@other_setting');
+    $router->get('setting/ads_setting', 'SettingController@ads_setting');
 });

@@ -47,10 +47,10 @@
         @else
             <div class="no-search my-2 p-1"></div>
         @endif
-        {{--                公告--}}
         <div class="bulletin-big mx-3 mx-md-0">
             @include('weight.notice')
         </div>
     </div>
 @else
+
 @endif

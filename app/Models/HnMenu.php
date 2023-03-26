@@ -27,6 +27,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|HnMenu wherePid($value)
  * @method static \Illuminate\Database\Eloquent\Builder|HnMenu whereType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|HnMenu whereUpdatedAt($value)
+ * @property int $sort 排序
+ * @method static \Illuminate\Database\Eloquent\Builder|HnMenu whereSort($value)
  * @mixin \Eloquent
  */
 class HnMenu extends Model

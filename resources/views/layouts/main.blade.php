@@ -17,6 +17,7 @@
         //} elseif (is_tax("apptag") || is_tax("apps") || is_tax("books") || is_tax("booktag") || is_tax("series")) {
         $content_class='container container-lg';
     }
+    $searchPosition = json_decode(admin_setting(Constants::Index_Search_Position,"[]"));
 @endphp
     <!DOCTYPE html>
 <html lang="zh-CN">
@@ -31,8 +32,17 @@
     @include('layouts.nav')
     <div class="main-content flex-fill">
         @include('layouts.header-banner')
-        @include('layouts.tool-header')
+        @include('tools.header')
         <div id="content" class="{!! $content_class !!}">
+            @if(!(in_array("home",$searchPosition) && admin_setting(Constants::Index_Search_Big)))
+                @if( in_array("home",$searchPosition) )
+                    @include('weight.notice')
+                @endif
+                @include('weight.search.default')
+                @include('weight.ads.hometop')
+            @else
+                <div class="no-search my-2 p-1"></div>
+            @endif
             @yield("content")
         </div>
     </div>
