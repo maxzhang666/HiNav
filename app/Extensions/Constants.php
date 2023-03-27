@@ -79,6 +79,8 @@ final class Constants
     const Basic_To_Go = 'basic_to_go';
     const Basic_New_Window = 'basic_new_window';
     const Basic_Is_Nofollow = 'basic_is_nofollow';
+    const Basic_Url_Go_To = 'basic_url_go_to';
+    const Basic_Img_Lazyload = 'basic_img_lazyload';
     #endregion
 
     #region 颜色配置

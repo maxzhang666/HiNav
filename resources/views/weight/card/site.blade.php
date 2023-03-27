@@ -5,6 +5,7 @@
     $is_html = '';
     $width = 128;
     $tooltip = 'data-toggle="tooltip" data-placement="bottom"';
+    $default_ico=asset('asset/imgs/favicon.png');
 
     if($site->qrcode){
         $title="<img src='" . get_post_meta_img(get_the_ID(), '_wechat_qr', true) . "' width='{$width}'>";
@@ -95,31 +96,35 @@
 @endphp
 <div class="url-body default">
     <a href="{!! $link_url !!}"
-       <?php echo ($sites_type == "sites" && get_post_meta($post->ID, '_goto', true)) ? '' : HnHelper:: nofollow($link_url, true) ?><?php echo $blank ?> data-id="<?php echo $site->ID ?>"
-       data-url="<?php echo rtrim($link_url,"/") ?>" class="card no-c <?php echo $is_views ?> mb-4 site-<?php echo $post->ID ?>" <?php echo $tooltip . ' ' . $is_html ?> title="<?php echo $title ?>">
+       {!! $site->type==1&& admin_setting(Constants::Basic_Url_Go_To,0)==1? '':HnHelper:: nofollow($link_url, true)!!}
+       data-url="<?php echo rtrim($link_url, "/") ?>" class="card no-c <?php echo $is_views ?> mb-4 site-{!! $site->id !!}" {!! $tooltip.' '.$is_html !!} title="{{$title}}">
         <div class="card-body">
             <div class="url-content d-flex align-items-center">
-                <?php if (!io_get_option('no_ico')) : ?>
-                <div class="url-img rounded-circle mr-2 d-flex align-items-center justify-content-center">
-                        <?php if (io_get_option('lazyload')): ?>
-                    <img class="lazy" src="<?php echo $default_ico; ?>" data-src="<?php echo $ico ?>" onerror="javascript:this.src='<?php echo $default_ico; ?>'">
-                    <?php else: ?>
-                    <img class="" src="<?php echo $ico ?>" onerror="javascript:this.src='<?php echo $default_ico; ?>'">
-                    <?php endif ?>
-                </div>
-                <?php endif; ?>
+                @if (true)
+                    <div class="url-img rounded-circle mr-2 d-flex align-items-center justify-content-center">
+                        @if (admin_setting(Constants::Basic_Img_Lazyload,1))
+                            <img class="lazy" src="{{ $default_ico }}" data-src="{{ $ico }}" onerror="javascript:this.src='{{ $default_ico }}'">
+                        @else
+                            <img class="" src="{{ $ico }}" onerror="javascript:this.src='{{ $default_ico }}'">
+                        @endif
+                    </div>
+                @endif
+
                 <div class="url-info flex-fill">
                     <div class="text-sm overflowClip_1">
-                        <?php show_sticky_tag(is_sticky()) . show_new_tag(get_the_time('Y-m-d H:i:s')) ?><strong><?php the_title() ?></strong>
+                        <!----><?php //show_sticky_tag(is_sticky()) . show_new_tag(get_the_time('Y-m-d H:i:s')) ?><!---->
+                        <strong>{{$title}}</strong>
                     </div>
-                    <p class="overflowClip_1 m-0 text-muted text-xs"><?php echo htmlspecialchars(get_post_meta($post->ID, '_sites_sescribe', true)) ?: preg_replace("/(\s|\&nbsp\;|　|\xc2\xa0)/", "", get_the_excerpt($post->ID)); ?></p>
+                    <p class="overflowClip_1 m-0 text-muted text-xs">
+                        {!! htmlspecialchars($site->desc_min) ?: preg_replace("/(\s|\&nbsp\;|　|\xc2\xa0)/", "", $site->id) !!}
+                    </p>
                 </div>
             </div>
         </div>
     </a>
-    <?php if ($link_url != "" && io_get_option("togo") && io_get_option("details_page")) { ?>
-    <a href="<?php echo ($sites_type == "sites" && get_post_meta($post->ID, '_goto', true))?$link_url:go_to($link_url) ?>" class="togo text-center text-muted is-views" target="_blank" data-id="<?php echo $post->ID ?>"
-       data-toggle="tooltip" data-placement="right" title="直达{!! $title !!}" <?php echo ($sites_type == "sites" && get_post_meta($post->ID, '_goto', true)) ? '' : nofollow($link_url) ?>><i
-            class="iconfont icon-goto"></i></a>
-    <?php } ?>
+    @if ($link_url != "" && io_get_option("togo") && io_get_option("details_page"))
+        <a href="{{HnHelper:: go_to($link_url) }}" class="togo text-center text-muted is-views" target="_blank" data-id="{{ $site->id }}"
+           data-toggle="tooltip" data-placement="right" title="直达{!! $title !!}" {!!  nofollow($link_url)!!}><i
+                class="iconfont icon-goto"></i></a>
+    @endif
 </div>
