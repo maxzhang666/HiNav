@@ -39,8 +39,12 @@ class AdsSetting extends Form
                         ->default('<a href="#" target="_blank"><img src="' . asset('asset/imgs/ad.jpg') . '" alt="广告也精彩" /></a>');
                 });
             $form->divider();
+            $form->radio(Constants::Ad_Index_Bottom, '底部广告')->options(Constants::Data_Switch)->default(0)->help('大搜索模式无效')
+                ->when(1, function (Form $form) {
+                    $form->textarea(Constants::Ad_Index_Bottom_Content, '底部广告')->rows(3)->help('底部广告')
+                        ->default('<a href="#" target="_blank"><img src="' . asset('asset/imgs/ad.jpg') . '" alt="广告也精彩" /></a>');
+                });
         });
-        $this->divider();
 
     }
 }

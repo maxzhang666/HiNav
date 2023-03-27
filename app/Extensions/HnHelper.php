@@ -132,4 +132,33 @@ class HnHelper
         }
         return false;
     }
+
+    public static function format_url($url, $is_format = false)
+    {
+        if ($url == '') {
+            return $url;
+        }
+        $url = rtrim($url, "/");
+        if (admin_setting(Constants::Other_Icon_Source_Https, 0) || $is_format) {
+            $pattern = '@^(?:https?://)?([^/]+)@i';
+            $result = preg_match($pattern, $url, $matches);
+            return $matches[1];
+        } else {
+            return $url;
+        }
+    }
+
+    public static function get_icon($link_url, $site_type): string
+    {
+        if ($link_url != '' || ($site_type == 1 && $link_url != '')) {
+            $ico = (admin_setting(Constants::Other_Icon_Source) . HnHelper::format_url($link_url) . admin_setting(Constants::Other_Icon_Source_Type));
+        } elseif ($site_type == 2) {
+            $ico = asset('asset/imgs/qr_ico.png');
+        } elseif ($site_type == 3) {
+            $ico = asset('asset/imgs/down_ico.png');
+        } else {
+            $ico = asset('asset/imgs/favicon.png');
+        }
+        return $ico;
+    }
 }

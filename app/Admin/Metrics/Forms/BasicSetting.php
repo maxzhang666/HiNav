@@ -18,7 +18,7 @@ class BasicSetting extends Form
         $this->dataKeys = [
             Constants::Basic_Mini_Nav,
             Constants::Basic_Page_Detail,
-            Constants::Basic_To_Go,
+            Constants::Basic_To_Go_Btn,
             Constants::Basic_New_Window,
             Constants::Basic_Is_Nofollow,
             Constants::Basic_Url_Go_To,
@@ -33,7 +33,7 @@ class BasicSetting extends Form
         $this->switch(Constants::Basic_Url_Go_To, '网址跳转中间页')->help('关闭则直接跳转')->default(0);
         $this->radio(Constants::Basic_Page_Detail, '页面详情')->options(Constants::Data_Switch)->help('启用网址详情页,关闭状态为网址块直接跳转到目标网址。')->default(0)
             ->when(1, function ($form) {
-                $form->switch(Constants::Basic_To_Go, '直达按钮')->help('网址块显示直达按钮')->default(0);
+                $form->switch(Constants::Basic_To_Go_Btn, '直达按钮')->help('网址块显示直达按钮')->default(0);
             });
 
         $this->switch(Constants::Basic_New_Window, '新窗口打开')->help('新窗口打开')->default(1);

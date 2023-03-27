@@ -25,6 +25,8 @@ class IndexSetting extends Form
             Constants::Index_Block_Columns,
             Constants::Index_Site_Show_Num,
             Constants::Index_Two_Columns_For_Mini,
+            Constants::Index_Tab_Mode,
+            Constants::Index_Tab_Mode_Ajax,
             Constants::Index_Tab_Parent_Name,
             Constants::Index_Notice,
             Constants::Index_Notice_Show,
@@ -51,19 +53,30 @@ class IndexSetting extends Form
             $form->text(Constants::Site_Keywords, '站点关键词')->required();
             $form->textarea(Constants::Site_Description, '站点描述')->required();
         });
+
+
         $this->tab('首页配置', function (Form $form) {
             $form->radio(Constants::Index_Card_Prompt, '网址块提示样式')->options(Constants::Index_Card_Prompt_Data)->default('url')->help('网址块提示样式');
             $form->radio(Constants::Index_Block_Columns, '网址列数')->options(Constants::Index_Block_Columns_Data)->default(4)->help('网址块列表一行显示的个数');
             $form->number(Constants::Index_Site_Show_Num, '网址展示数')->help('在首页分类下显示的网址数量')->default(20);
             $form->switch(Constants::Index_Two_Columns_For_Mini, '小屏幕显示两列')->help('小屏幕下网址块列表一行显示两列')->default(0);
             $form->divider();
+            #region tab模式配置
             $form->switch(Constants::Index_Tab_Parent_Name, '显示父级分类')->help('网址块分类名前面显示父级分类名称')->default(0);
+            $form->radio(Constants::Index_Tab_Mode, '网址块分类模式')->options(Constants::Data_Switch)->default(0)->help('网址块分类模式')
+                ->when(1, function (Form $form) {
+                    $form->switch(Constants::Index_Tab_Mode_Ajax, 'tab模型ajax加载数据')->default(0);
+                });
+            #endregion
+            $this->divider();
             $form->radio(Constants::Index_Notice, '公告')->options(Constants::Data_Switch)->default(0)->help('首页公告')
                 ->when(1, function (Form $form) {
                     $form->switch(Constants::Index_Notice_Show, '公告展示')->help('公告内容');
                     $form->number(Constants::Index_Notice_Show_Num, '公告展示数')->help('公告展示数')->default(2);
                 });
             $form->divider();
+
+            #region 搜索框
             $form->checkbox(Constants::Index_Search_Position, '搜索框位置')->options(Constants::Index_Search_Position_Data)->default(["home"])->help('搜索框显示位置')
                 ->when(["home"], function (Form $form) {
                     $form->radio(Constants::Index_Search_Big, '大搜索框')->options(Constants::Data_Switch)->default(0)->help('搜索框大小')
@@ -92,6 +105,8 @@ class IndexSetting extends Form
                         });
                     $form->switch(Constants::Index_Search_Background_Gradual, '渐变背景')->help('搜索框背景渐变')->default(0);
                 });
+            #endregion
+
         });
 
     }

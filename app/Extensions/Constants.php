@@ -30,6 +30,8 @@ final class Constants
         '6' => 6,
         '10' => 10,
     ];
+    const Index_Tab_Mode = 'index_tab_mode';
+    const Index_Tab_Mode_Ajax = 'index_tab_mode_ajax';
     const Index_Tab_Parent_Name = 'index_tab_parent_name';
 
     const Index_Notice = 'index_notice';
@@ -62,6 +64,8 @@ final class Constants
 
     #region 页脚配置
     const Footer_Beian_No = 'footer_beian_no';
+    const Footer_Analytics_Code = 'footer_analytics_code';
+    const Footer_CopyRight = 'footer_copy_right';
     #endregion
 
     #region 图标设置
@@ -76,7 +80,7 @@ final class Constants
     #region 基础配置
     const Basic_Mini_Nav = 'basic_mini_nav';
     const Basic_Page_Detail = 'basic_page_detail';
-    const Basic_To_Go = 'basic_to_go';
+    const Basic_To_Go_Btn = 'basic_to_go';
     const Basic_New_Window = 'basic_new_window';
     const Basic_Is_Nofollow = 'basic_is_nofollow';
     const Basic_Url_Go_To = 'basic_url_go_to';
@@ -126,6 +130,9 @@ final class Constants
     const Other_Hitokoto = 'other_hitokoto';
     const Other_QrCode_Api = 'other_qr_code_api';
     const Other_Random_Head_Img = 'other_random_head_img';
+    const Other_Icon_Source = 'other_icon_source';
+    const Other_Icon_Source_Type = 'other_icon_source_type';
+    const Other_Icon_Source_Https = 'other_icon_source_https';
     const Other_Weather_Position_Data = [
         'header' => '顶部',
         'footer' => '底部小工具',
@@ -139,6 +146,7 @@ final class Constants
     const Ad_Index_Top_Two = 'ad_index_top_two';
     const Ad_Index_Top_Two_Content = 'ad_index_top_two_content';
     const Ad_Index_Bottom = 'ad_index_bottom';
+    const Ad_Index_Bottom_Content = 'ad_index_bottom_content';
     #endregion
     const Data_Switch = [
         1 => '开启',
