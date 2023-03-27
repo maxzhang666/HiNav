@@ -26,5 +26,19 @@
     <link rel='stylesheet' href='{{asset("asset/css/jquery.fancybox.min.css")}}' type='text/css' media='all'/>
     <link rel='stylesheet' href='{{asset("asset/css/style.css")}}' type='text/css' media='all'/>
     <script type='text/javascript' src='{{asset("asset/js/jquery.min.js")}}'></script>
-
+    <script type='text/javascript' id='jquery-js-after'>
+        /* <![CDATA[ */
+        function loadFunc(func) {
+            var oldOnload = window.onload;
+            if (typeof window.onload != "function") {
+                window.onload = func;
+            } else {
+                window.onload = function() {
+                    oldOnload();
+                    func();
+                }
+            }
+        }
+        /* ]]> */
+    </script>
 </head>

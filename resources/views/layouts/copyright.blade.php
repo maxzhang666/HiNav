@@ -15,30 +15,59 @@
         @endif
         @if(admin_setting(Constants::Other_Weather,0) && admin_setting(Constants::Other_Weather_Position)=='footer')
             <!-- 天气  -->
+            {{--            <div class="btn rounded-circle weather m-1">--}}
+            {{--                <div id="he-plugin-simple" style="display: contents;"></div>--}}
+            {{--                <script>WIDGET = {--}}
+            {{--                        CONFIG: {--}}
+            {{--                            "modules": "02",--}}
+            {{--                            "background": 5,--}}
+            {{--                            "tmpColor": "888",--}}
+            {{--                            "tmpSize": 14,--}}
+            {{--                            "cityColor": "888",--}}
+            {{--                            "citySize": 14,--}}
+            {{--                            "aqiSize": 14,--}}
+            {{--                            "weatherIconSize": 24,--}}
+            {{--                            "alertIconSize": 18,--}}
+            {{--                            "padding": "7px 2px 7px 2px",--}}
+            {{--                            "shadow": "1",--}}
+            {{--                            "language": "auto",--}}
+            {{--                            "borderRadius": 5,--}}
+            {{--                            "fixed": "false",--}}
+            {{--                            "vertical": "middle",--}}
+            {{--                            "horizontal": "left",--}}
+            {{--                            "key": "a922adf8928b4ac1ae7a31ae7375e191"--}}
+            {{--                        }--}}
+            {{--                    }</script>--}}
+            {{--                <script src="//widget.heweather.net/simple/static/js/he-simple-common.js?v=1.1"></script>--}}
+            {{--            </div>--}}
             <div class="btn rounded-circle weather m-1">
                 <div id="he-plugin-simple" style="display: contents;"></div>
                 <script>WIDGET = {
                         CONFIG: {
                             "modules": "02",
-                            "background": 5,
+                            "background": "5",
                             "tmpColor": "888",
-                            "tmpSize": 14,
+                            "tmpSize": "14",
                             "cityColor": "888",
-                            "citySize": 14,
-                            "aqiSize": 14,
-                            "weatherIconSize": 24,
-                            "alertIconSize": 18,
+                            "citySize": "14",
+                            "aqiSize": "14",
+                            "weatherIconSize": "24",
+                            "alertIconSize": "18",
                             "padding": "7px 2px 7px 2px",
                             "shadow": "1",
                             "language": "auto",
-                            "borderRadius": 5,
                             "fixed": "false",
                             "vertical": "middle",
                             "horizontal": "left",
                             "key": "a922adf8928b4ac1ae7a31ae7375e191"
                         }
                     }</script>
-                <script src="//widget.heweather.net/simple/static/js/he-simple-common.js?v=1.1"></script>
+                <script> loadFunc(function () {
+                        let script = document.createElement("script");
+                        script.setAttribute("async", "");
+                        script.src = "//widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0";
+                        document.body.appendChild(script);
+                    }); </script>
             </div>
             <!-- 天气 end -->
         @endif
