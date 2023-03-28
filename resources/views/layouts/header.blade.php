@@ -24,7 +24,7 @@
     <link rel='stylesheet' href='{{asset("asset/css/iconfont.css")}}' type='text/css' media='all'/>
     <link rel='stylesheet' href='{{asset("asset/css/bootstrap.min.css")}}' type='text/css' media='all'/>
     <link rel='stylesheet' href='{{asset("asset/css/jquery.fancybox.min.css")}}' type='text/css' media='all'/>
-    <link rel='stylesheet' href='{{asset("asset/css/style.css")}}' type='text/css' media='all'/>
+    <link rel='stylesheet' href='{{mix("asset/css/app.css")}}' type='text/css' media='all'/>
     <script type='text/javascript' src='{{asset("asset/js/jquery.min.js")}}'></script>
     <script type='text/javascript' id='jquery-js-after'>
         /* <![CDATA[ */
