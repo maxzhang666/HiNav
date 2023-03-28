@@ -113,4 +113,5 @@
 <script type='text/javascript' src='{{asset('asset/js/bootstrap.min.js')}}' id='bootstrap-js'></script>
 <script type='text/javascript' src='{{asset('asset/js/theia-sticky-sidebar.js')}}' id='sidebar-js'></script>
 <script type='text/javascript' src='{{asset('asset/js/jquery.fancybox.min.js')}}' id='lightbox-js-js'></script>
-<script type='text/javascript' src='{{asset('asset/js/app.js')}}' id='appjs-js'></script>
+{{--<script type='text/javascript' src='{{asset('asset/js/app.js')}}' id='appjs-js'></script>--}}
+<script type='text/javascript' src='{{mix('asset/js/app.js')}}' id='appjs-js'></script>

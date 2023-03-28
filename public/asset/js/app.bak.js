@@ -1,4 +1,3 @@
-require('./bootstrap');
 (function($){
     $(document).ready(function(){
         // 侧栏菜单初始状态设置
@@ -27,13 +26,13 @@ require('./bootstrap');
     // Enable/Disable Resizable Event
     var wid = 0;
     $(window).resize(function() {
-        clearTimeout(wid);
+		clearTimeout(wid);
         wid = setTimeout(go_resize, 200);
     });
     function go_resize() {
         stickFooter();
         //if(theme.minNav != '1'){
-        trigger_resizable();
+            trigger_resizable();
         //}
     }
     // count-a数字动画
@@ -55,63 +54,63 @@ require('./bootstrap');
             load.animate({opacity:'1'},200,'swing').delay(3000).hide(300,function(){ load.remove() });
         }
     });
-    // 点赞
-    $(".btn-like").click(function() {
-        if ($(this).hasClass('liked')) {
-            showAlert(JSON.parse('{"status":3,"msg":"您已经赞过了!"}'));
-        } else {
+	// 点赞
+	$(".btn-like").click(function() {
+		if ($(this).hasClass('liked')) {
+			showAlert(JSON.parse('{"status":3,"msg":"您已经赞过了!"}'));
+		} else {
             var icop = $(this).children('.flex-column');
-            $('.btn-like').addClass('liked');
-            $.ajax({
-                type : 'POST',
-                url : theme.ajaxurl,
-                data : {
-                    action: "post_like",
+			$('.btn-like').addClass('liked');
+			$.ajax({
+				type : 'POST',
+				url : theme.ajaxurl,
+				data : {
+					action: "post_like",
                     post_id: $(this).data("id"),
                     ticket: $(this).data("ticket")
                 },
                 success : function( data ){
                     $am = $('<i class="iconfont icon-heart" style="color: #f12345;transform: scale(1) translateY(0);position: absolute;transition: .6s;opacity: 1;"></i>');
                     icop.prepend($am);
-                    showAlert(JSON.parse('{"status":1,"msg":"谢谢点赞!"}'));
+					showAlert(JSON.parse('{"status":1,"msg":"谢谢点赞!"}'));
                     $('.like-count').html(data);
                     $am.addClass('home-like-hide');
-                },
+				},
                 error:function(){
                     showAlert(JSON.parse('{"status":4,"msg":"网络错误 --."}'));
                 }
             });
-        }
-        return false;
+		}
+		return false;
     });
     // 卡片点赞
     $(document).on('click', '.home-like', function() {
-        if ($(this).hasClass('liked')) {
-            showAlert(JSON.parse('{"status":3,"msg":"您已经赞过了!"}'));
-        } else {
+		if ($(this).hasClass('liked')) {
+			showAlert(JSON.parse('{"status":3,"msg":"您已经赞过了!"}'));
+		} else {
             var icop = $(this);
             var id = $(this).data("id");
-            $(this).addClass('liked');
-            $.ajax({
-                type : 'POST',
-                url : theme.ajaxurl,
-                data : {
-                    action: "post_like",
-                    post_id: id
-                },
-                success : function( data ){
+			$(this).addClass('liked');
+			$.ajax({
+				type : 'POST',
+				url : theme.ajaxurl,
+				data : {
+					action: "post_like",
+					post_id: id
+				},
+				success : function( data ){
                     $am = $('<i class="iconfont icon-heart" style="color: #f12345;transform: scale(1) translateY(0);position: absolute;transition: .6s;opacity: 1;"></i>');
                     icop.prepend($am);
                     showAlert(JSON.parse('{"status":1,"msg":"谢谢点赞!"}'));
                     $(".home-like-"+id).html(data);
                     $am.addClass('home-like-hide');
-                },
+				},
                 error:function(){
-                    showAlert(JSON.parse('{"status":4,"msg":"网络错误 --."}'));
+					showAlert(JSON.parse('{"status":4,"msg":"网络错误 --."}'));
                 }
-            });
-        }
-        return false;
+			});
+		}
+		return false;
     });
     //未开启详情页计算访客方法
     $(document).on('click', '.url-card a.is-views[data-id]', function() {
@@ -143,23 +142,23 @@ require('./bootstrap');
         });
     });
     //夜间模式
-    $(document).on('click', '.switch-dark-mode', function(event) {
-        event.preventDefault();
+	$(document).on('click', '.switch-dark-mode', function(event) {
+		event.preventDefault();
         $.ajax({
             url: theme.ajaxurl,
             type: 'POST',
             dataType: 'html',
             data: {
-                mode_toggle: $('body').hasClass('io-black-mode') === true ? 1 : 0,
-                action: 'switch_dark_mode',
+				mode_toggle: $('body').hasClass('io-black-mode') === true ? 1 : 0,
+				action: 'switch_dark_mode',
             },
         })
-            .done(function(response) {
-                $('body').toggleClass('io-black-mode '+theme.defaultclass);
-                switch_mode();
-                $("#"+ $('.switch-dark-mode').attr('aria-describedby')).remove();
-                //$('.switch-dark-mode').removeAttr('aria-describedby');
-            })
+        .done(function(response) {
+			$('body').toggleClass('io-black-mode '+theme.defaultclass);
+            switch_mode();
+            $("#"+ $('.switch-dark-mode').attr('aria-describedby')).remove();
+            //$('.switch-dark-mode').removeAttr('aria-describedby');
+        })
     });
     function switch_mode(){
         if($('body').hasClass('io-black-mode')){
@@ -191,17 +190,17 @@ require('./bootstrap');
         $('body,html').animate({
             scrollTop: 0
         }, 500);
-        return false;
+    return false;
     });
 
 
     //滑块菜单
     $('.slider_menu').children("ul").children("li").not(".anchor").hover(function() {
         $(this).addClass("hover"),
-            //$('li.anchor').css({
-            //    transform: "scale(1.05)",
-            //}),
-            toTarget($(this).parent())
+        //$('li.anchor').css({
+        //    transform: "scale(1.05)",
+        //}),
+        toTarget($(this).parent())
     }, function() {
         //$('li.anchor').css({
         //    transform: "scale(1)",
@@ -235,17 +234,17 @@ require('./bootstrap');
     //粘性页脚
     function stickFooter() {
         $('.main-footer').attr('style', '');
-        if($('.main-footer').hasClass('text-xs'))
-        {
-            var win_height				 = jQuery(window).height(),
-                footer_height			 = $('.main-footer').outerHeight(true),
-                main_content_height	     = $('.main-footer').position().top + footer_height ;
-            if(win_height > main_content_height - parseInt($('.main-footer').css('marginTop'), 10))
-            {
-                $('.main-footer').css({
-                    marginTop: win_height - main_content_height
-                });
-            }
+	    if($('.main-footer').hasClass('text-xs'))
+	    {
+	    	var win_height				 = jQuery(window).height(),
+	    		footer_height			 = $('.main-footer').outerHeight(true),
+	    		main_content_height	     = $('.main-footer').position().top + footer_height ;
+	    	if(win_height > main_content_height - parseInt($('.main-footer').css('marginTop'), 10))
+	    	{
+	    		$('.main-footer').css({
+	    			marginTop: win_height - main_content_height
+	    		});
+	    	}
         }
     }
 
@@ -312,17 +311,17 @@ require('./bootstrap');
             $('.sidebar-nav').removeClass('mini-sidebar');
             $('.sidebar-menu ul ul').css("display", "none");
             if(isNoAnim)
-                $('.sidebar-nav').width(220);
+            $('.sidebar-nav').width(220);
             else
-                $('.sidebar-nav').stop().animate({width: 220},200);
+            $('.sidebar-nav').stop().animate({width: 220},200);
         }else{
             $('.sidebar-item.sidebar-show').removeClass('sidebar-show');
             $('.sidebar-menu ul').removeAttr('style');
             $('.sidebar-nav').addClass('mini-sidebar');
             if(isNoAnim)
-                $('.sidebar-nav').width(60);
+            $('.sidebar-nav').width(60);
             else
-                $('.sidebar-nav').stop().animate({width : 60},200);
+            $('.sidebar-nav').stop().animate({width : 60},200);
         }
         //$('.sidebar-nav').css("transition","width .3s");
     }
@@ -375,34 +374,34 @@ require('./bootstrap');
                 data : t.data(),
                 cache: true,
             })
-                .done(function(response) {
-                    if (response.trim()) {
-                        $(body).html('');
-                        $(body).append(response);
-                        //if(theme.lazyload == '1') {
-                        //    $(body+" img.lazy").lazyload();
-                        //}
-                        var url =  $(body).children('#ajax-cat-url').data('url');
-                        if(url)
-                            t.parents('.d-flex.flex-fill.flex-tab').children('.btn-move.tab-move').show().attr('href', url);
-                        else
-                            t.parents('.d-flex.flex-fill.flex-tab').children('.btn-move.tab-move').hide();
-                        if(isPC()) $('.ajax-url [data-toggle="tooltip"]').tooltip({ trigger: 'hover' });
-                    } else {
-                        $('.ajax-loading').remove();
-                    }
-                })
-                .fail(function() {
+            .done(function(response) {
+                if (response.trim()) {
+                    $(body).html('');
+                    $(body).append(response);
+                    //if(theme.lazyload == '1') {
+                    //    $(body+" img.lazy").lazyload();
+                    //}
+                    var url =  $(body).children('#ajax-cat-url').data('url');
+                    if(url)
+                        t.parents('.d-flex.flex-fill.flex-tab').children('.btn-move.tab-move').show().attr('href', url);
+                    else
+                        t.parents('.d-flex.flex-fill.flex-tab').children('.btn-move.tab-move').hide();
+                    if(isPC()) $('.ajax-url [data-toggle="tooltip"]').tooltip({ trigger: 'hover' });
+                } else {
                     $('.ajax-loading').remove();
-                })
+                }
+            })
+            .fail(function() {
+                $('.ajax-loading').remove();
+            })
         }
     }
 
     // 自定义模块-----------------
     $(".add-link-form").on("submit", function() {
         var siteName = $(".site-add-name").val()
-            , siteUrl = $(".site-add-url").val();
-        addSiteList({
+          , siteUrl = $(".site-add-url").val();
+          addSiteList({
             id: +new Date,
             name: siteName,
             url: siteUrl
@@ -440,21 +439,21 @@ require('./bootstrap');
         }
         var newSite = $('<div class="url-card  col-6 col-md-4 col-lg-3 col-xl-2 col-xxl-10a">'+
             '<div class="url-body mini"><a href="'+site.url+'" target="_blank" class="card new-site mb-3 site-'+site.id+'" data-id="'+site.id+'" data-url="'+site.url+'" data-toggle="tooltip" data-placement="bottom" title="'+site.name+'" rel="external nofollow">'+
-            '<div class="card-body" style="padding:0.4rem 0.5rem;">'+
-            '<div class="url-content d-flex align-items-center">'+
-            '<div class="url-img rounded-circle mr-2 d-flex align-items-center justify-content-center">'+
-            '<img src="' + theme.icourl + url_f + theme.icopng + '">'+
-            '</div>'+
-            '<div class="url-info flex-fill">'+
-            '<div class="text-sm overflowClip_1">'+
-            '<strong>'+site.name+'</strong>'+
-            '</div>'+
-            '</div>'+
-            '</div>'+
-            '</div>'+
+                '<div class="card-body" style="padding:0.4rem 0.5rem;">'+
+                '<div class="url-content d-flex align-items-center">'+
+                    '<div class="url-img rounded-circle mr-2 d-flex align-items-center justify-content-center">'+
+                        '<img src="' + theme.icourl + url_f + theme.icopng + '">'+
+                    '</div>'+
+                    '<div class="url-info flex-fill">'+
+                        '<div class="text-sm overflowClip_1">'+
+                            '<strong>'+site.name+'</strong>'+
+                        '</div>'+
+                    '</div>'+
+                '</div>'+
+                '</div>'+
             '</a></div>' +
             '<a href="javascript:;" class="text-center remove-site" data-id="'+site.id+'" style="display: none"><i class="iconfont icon-close-circle"></i></a>'+
-            '</div>');
+        '</div>');
         if(isLive){
             if(isHeader)
                 $(".my-click-list").prepend(newSite);
@@ -537,66 +536,66 @@ require('./bootstrap');
         }
     });
     $.fn.textSlider = function(settings) {
-        settings = jQuery.extend({
-                speed: "normal",
-                line: 2,
-                timer: 1000
-            },
-            settings);
-        return this.each(function() {
-            scllor($(this), settings)
-        })
-    };
-    function scllor($this, settings) {
-        var ul = $("ul:eq(0)", $this);
-        var timerID;
-        var li = ul.children();
-        var _btnUp = $(".up:eq(0)", $this);
-        var _btnDown = $(".down:eq(0)", $this);
-        var liHight = $(li[0]).height();
-        var upHeight = 0 - settings.line * liHight;
-        var scrollUp = function() {
-            _btnUp.unbind("click", scrollUp);
-            ul.animate({
-                    marginTop: upHeight
-                },
-                settings.speed,
-                function() {
-                    for (i = 0; i < settings.line; i++) {
-                        ul.find("li:first").appendTo(ul)
-                    }
-                    ul.css({
-                        marginTop: 0
-                    });
-                    _btnUp.bind("click", scrollUp)
-                })
-        };
-        var scrollDown = function() {
-            _btnDown.unbind("click", scrollDown);
-            ul.css({
-                marginTop: upHeight
-            });
-            for (i = 0; i < settings.line; i++) {
-                ul.find("li:last").prependTo(ul)
-            }
-            ul.animate({
-                    marginTop: 0
-                },
-                settings.speed,
-                function() {
-                    _btnDown.bind("click", scrollDown)
-                })
-        };
-        var autoPlay = function() {
-            timerID = window.setInterval(scrollUp, settings.timer)
-        };
-        var autoStop = function() {
-            window.clearInterval(timerID)
-        };
-        ul.hover(autoStop, autoPlay).mouseout();
-        _btnUp.css("cursor", "pointer").click(scrollUp);
-        _btnUp.hover(autoStop, autoPlay);
-        _btnDown.css("cursor", "pointer").click(scrollDown);
+		settings = jQuery.extend({
+			speed: "normal",
+			line: 2,
+			timer: 1000
+		},
+		settings);
+		return this.each(function() {
+			scllor($(this), settings)
+		})
+	};
+	function scllor($this, settings) {
+		var ul = $("ul:eq(0)", $this);
+		var timerID;
+		var li = ul.children();
+		var _btnUp = $(".up:eq(0)", $this);
+		var _btnDown = $(".down:eq(0)", $this);
+		var liHight = $(li[0]).height();
+		var upHeight = 0 - settings.line * liHight;
+		var scrollUp = function() {
+			_btnUp.unbind("click", scrollUp);
+			ul.animate({
+				marginTop: upHeight
+			},
+			settings.speed,
+			function() {
+				for (i = 0; i < settings.line; i++) {
+					ul.find("li:first").appendTo(ul)
+				}
+				ul.css({
+					marginTop: 0
+				});
+				_btnUp.bind("click", scrollUp)
+			})
+		};
+		var scrollDown = function() {
+			_btnDown.unbind("click", scrollDown);
+			ul.css({
+				marginTop: upHeight
+			});
+			for (i = 0; i < settings.line; i++) {
+				ul.find("li:last").prependTo(ul)
+			}
+			ul.animate({
+				marginTop: 0
+			},
+			settings.speed,
+			function() {
+				_btnDown.bind("click", scrollDown)
+			})
+		};
+		var autoPlay = function() {
+			timerID = window.setInterval(scrollUp, settings.timer)
+		};
+		var autoStop = function() {
+			window.clearInterval(timerID)
+		};
+		ul.hover(autoStop, autoPlay).mouseout();
+		_btnUp.css("cursor", "pointer").click(scrollUp);
+		_btnUp.hover(autoStop, autoPlay);
+		_btnDown.css("cursor", "pointer").click(scrollDown);
         _btnDown.hover(autoStop, autoPlay);
 
         document.addEventListener('visibilitychange',function(){
@@ -750,10 +749,10 @@ function isPC() {
     let Agents = ["Android", "iPhone", "webOS", "BlackBerry", "SymbianOS", "Windows Phone", "iPad", "iPod"];
     let flag = true;
     for (let i = 0; i < Agents.length; i++) {
-        if (u.indexOf(Agents[i]) > 0) {
-            flag = false;
-            break;
-        }
+      if (u.indexOf(Agents[i]) > 0) {
+        flag = false;
+        break;
+      }
     }
     return flag;
 }
@@ -764,22 +763,22 @@ function showAlert(data) {
             title = '成功';
             alert='success';
             ico='icon-adopt';
-            break;
+           break;
         case 2:
             title = '信息';
             alert='info';
             ico='icon-tishi';
-            break;
+           break;
         case 3:
             title = '警告';
             alert='warning';
             ico='icon-warning';
-            break;
+           break;
         case 4:
             title = '错误';
             alert='danger';
             ico='icon-close-circle';
-            break;
+           break;
         default:
     }
     var msg = data.msg;
@@ -803,17 +802,17 @@ function toTarget(menu, padding = true, isMult = true) {
     }
     if(0 < target.length){
         if(padding)
-            slider.css({
-                left: target.position().left + target.scrollLeft() + "px",
-                width: target.outerWidth() + "px",
-                opacity: "1"
-            });
+        slider.css({
+            left: target.position().left + target.scrollLeft() + "px",
+            width: target.outerWidth() + "px",
+            opacity: "1"
+        });
         else
-            slider.css({
-                left: target.position().left + target.scrollLeft() + (target.outerWidth()/4) + "px",
-                width: target.outerWidth()/2 + "px",
-                opacity: "1"
-            });
+        slider.css({
+            left: target.position().left + target.scrollLeft() + (target.outerWidth()/4) + "px",
+            width: target.outerWidth()/2 + "px",
+            opacity: "1"
+        });
     }
     else{
         slider.css({
@@ -821,5 +820,4 @@ function toTarget(menu, padding = true, isMult = true) {
         })
     }
 }
-console.log("\n %c HiNav 嗨导航 By Max %c https://hinav.wandhi.com/ \n", "color: #ffffff; background: #f1404b; padding:5px 0;", "background: #030307; padding:5px 0;");
-
+console.log("\n %c HiNav 嗨导航 By max %c https://hinav.wandhi.com/ \n", "color: #ffffff; background: #f1404b; padding:5px 0;", "background: #030307; padding:5px 0;");

@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+const {inProduction} = require("laravel-mix");
 
 /*
  |--------------------------------------------------------------------------
@@ -11,7 +12,15 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
+// mix.setPublicPath('public/asset');
+mix
+    .js('resources/js/app.js', 'asset/js')
+    .postCss('resources/css/app.css', 'asset/css', [
         //
     ]);
+if (inProduction()) {
+    mix.version();
+} else {
+    mix.sourceMaps();
+    // mix.browserSync({proxy: 'hinav'});
+}
