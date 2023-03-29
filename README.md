@@ -7,7 +7,7 @@
 ```shell
 composer update
 
-cp .env.example .evn
+cp .env.example .env
 
 php artisan key:generate --ansi
 
