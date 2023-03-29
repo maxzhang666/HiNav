@@ -23,6 +23,8 @@ use Dcat\Admin\Layout\Menu;
 use Dcat\Admin\Layout\Navbar;
 
 Admin::navbar(function (Navbar $navbar) {
+    $method = config('admin.layout.horizontal_menu') ? 'left' : 'right';
+
     $navbar->$method(
         <<<HTML
 <ul class="nav navbar-nav">
