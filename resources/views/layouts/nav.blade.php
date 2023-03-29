@@ -66,7 +66,7 @@
                     <ul>
                         @foreach($bottom_menus as $item)
                             <li id="menu-item-{{$item->id}}" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-17 sidebar-item">
-                                <a href="{{$item->link}}">{{$item->name}}</a>
+                                <a href="{{$item->link}}" {!! admin_setting(Constants::Basic_New_Window,0)==1?'target="_blank"':"" !!}>{{$item->name}}</a>
                             </li>
                         @endforeach
                     </ul>
