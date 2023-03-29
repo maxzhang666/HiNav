@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>{{$title.$title_after}}</title>
+    <title>{{$title.' - '.admin_setting(Constants::Site_Description)}}</title>
     <meta name="theme-color" content="{{ HnHelper::get_theme_mode()   =="black-mode"?'#2C2E2F':'#f9f9f9'}}"/>
     <meta name="keywords" content="{{$keywords}}"/>
     <meta name="description" content="{{ stripslashes($description) }}"/>

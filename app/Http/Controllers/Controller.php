@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Extensions\Constants;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -22,6 +23,20 @@ class Controller extends BaseController
     private $keywords;
     private $description;
     private $logo_white;
+
+    public function __construct()
+    {
+        $this->title = admin_setting(Constants::Site_Title);
+        //TODO 页面内渲染明细标题
+//        $this->title_after = Route::is('home') ? '' : '';
+        $this->url = admin_setting(Constants::Site_Url);
+        $this->logo = admin_setting(Constants::Icon_Logo);
+        $this->logo_white = admin_setting(Constants::Icon_Logo_White);
+
+        $this->keywords = admin_setting(Constants::Site_Keywords);
+        $this->description = admin_setting(Constants::Site_Description);
+    }
+
 
     /**
      * @param $view
