@@ -30,7 +30,7 @@ Admin::navbar(function (Navbar $navbar) {
 <ul class="nav navbar-nav">
     <li class="nav-item">        &nbsp;
         <a style="cursor: pointer" href="/" target="_blank">
-            <i class="feather icon-github" style="font-size: 1.5rem"></i> 打开首页
+            <i class="fa fa-home" style="font-size: 1.5rem"></i> 打开首页
         </a>
     </li>
 </ul>
