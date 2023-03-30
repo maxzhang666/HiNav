@@ -22,6 +22,7 @@ class OtherSetting extends Form
             Constants::Other_QrCode_Api,
             Constants::Other_Random_Head_Img,
             Constants::Other_IconFont_Switch,
+            Constants::Other_IconFont_Url,
             Constants::Other_Icon_Source_Https,
             Constants::Other_Icon_Source,
             Constants::Other_Icon_Source_Type,
