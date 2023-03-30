@@ -16,9 +16,9 @@ class CreateHnMenuTable extends Migration
         Schema::create('hn_menu', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->default('');
-            $table->string('pid')->default('');
+            $table->integer('pid')->nullable();
             $table->string('link')->default('')->nullable();
-            $table->string('type')->default('');
+            $table->integer('type')->nullable();
             $table->string('icon')->default('')->nullable();
             $table->integer('sort')->default(0);
             $table->timestamps();
