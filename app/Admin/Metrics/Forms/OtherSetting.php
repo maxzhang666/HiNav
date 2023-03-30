@@ -41,7 +41,7 @@ class OtherSetting extends Form
 
         $this->radio(Constants::Other_IconFont_Switch, '图标库')->help('是否使用自定义图标库')->options(Constants::Data_Switch)->default(0)
             ->when(1, function (Form $form) {
-                $form->text(Constants::Other_IconFont_Url, '图标库地址')->help('图标库地址');
+                $form->text(Constants::Other_IconFont_Url, '图标库地址')->help('图标库地址')->default('https://at.alicdn.com/t/c/font_3987806_bhb0pyeyv7w.css');
             });
 
         $this->divider();
