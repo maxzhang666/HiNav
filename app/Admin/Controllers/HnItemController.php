@@ -19,6 +19,8 @@ class HnItemController extends AdminController
         'create' => '创建',
     ];
 
+    protected $title = '网址管理';
+
     /**
      * Make a grid builder.
      *

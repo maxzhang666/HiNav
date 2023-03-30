@@ -11,6 +11,8 @@ use Dcat\Admin\Show;
 
 class HnMenuController extends AdminController
 {
+
+    protected $title = '菜单管理';
     /**
      * Make a grid builder.
      *
@@ -19,6 +21,7 @@ class HnMenuController extends AdminController
     protected function grid()
     {
         return Grid::make(new HnMenu(), function (Grid $grid) {
+
             $grid->column('id')->sortable();
             $grid->column('name');
             $grid->column('pid')->select(\App\Models\HnMenu::GetRoots(), true)->width(160);// using(\App\Models\HnMenu::GetRoots())->editable();

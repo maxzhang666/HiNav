@@ -10,6 +10,8 @@ use Dcat\Admin\Show;
 
 class HnNoticeController extends AdminController
 {
+
+    protected $title = '公告管理';
     /**
      * Make a grid builder.
      *
