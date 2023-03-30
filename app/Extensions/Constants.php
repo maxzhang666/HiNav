@@ -130,6 +130,8 @@ final class Constants
     const Other_Hitokoto = 'other_hitokoto';
     const Other_QrCode_Api = 'other_qr_code_api';
     const Other_Random_Head_Img = 'other_random_head_img';
+    const Other_IconFont_Switch = 'other_iconfont_switch';
+    const Other_IconFont_Url = 'other_iconfont_url';
     const Other_Icon_Source = 'other_icon_source';
     const Other_Icon_Source_Type = 'other_icon_source_type';
     const Other_Icon_Source_Https = 'other_icon_source_https';

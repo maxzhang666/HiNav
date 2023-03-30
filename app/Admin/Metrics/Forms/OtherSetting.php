@@ -21,6 +21,7 @@ class OtherSetting extends Form
             Constants::Other_Hitokoto,
             Constants::Other_QrCode_Api,
             Constants::Other_Random_Head_Img,
+            Constants::Other_IconFont_Switch,
             Constants::Other_Icon_Source_Https,
             Constants::Other_Icon_Source,
             Constants::Other_Icon_Source_Type,
@@ -35,6 +36,15 @@ class OtherSetting extends Form
 
         $this->switch(Constants::Other_Hitokoto, '一言')->help('右上角显示一言')->default(0);
 
+        $this->divider();
+
+
+        $this->radio(Constants::Other_IconFont_Switch, '图标库')->help('是否使用自定义图标库')->options(Constants::Data_Switch)->default(0)
+            ->when(1, function (Form $form) {
+                $form->text(Constants::Other_IconFont_Url, '图标库地址')->help('图标库地址');
+            });
+
+        $this->divider();
         $this->text(Constants::Other_QrCode_Api, '二维码API')->help('二维码API')->default('https://my.tv.sohu.com/user/a/wvideo/getQRCode.do?width=$size&height=$size&text=$url');
 
         $this->textarea(Constants::Other_Random_Head_Img, '随机首图')->help('一行一个图片地址，注意不要有空格')
