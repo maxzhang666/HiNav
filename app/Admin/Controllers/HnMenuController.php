@@ -28,8 +28,9 @@ class HnMenuController extends AdminController
             $grid->column('created_at')->sortable();
             $grid->column('updated_at')->sortable();
 
-//            $grid->disableEditButton();
-//            $grid->enableDialogCreate();
+            $grid->disableEditButton();
+            $grid->disableViewButton();
+            $grid->enableDialogCreate();
             $grid->showQuickEditButton();
 
             $grid->filter(function (Grid\Filter $filter) {
@@ -49,14 +50,14 @@ class HnMenuController extends AdminController
     protected function detail($id)
     {
         return Show::make($id, new HnMenu(), function (Show $show) {
-            $show->field('id');
+//            $show->field('id');
             $show->field('name');
-            $show->field('pid');
+            $show->field('pid')->using(\App\Models\HnMenu::GetRoots());
             $show->field('link');
-            $show->field('type');
+            $show->field('type')->using(Constants::Menu_Type);
             $show->field('icon');
-            $show->field('created_at');
-            $show->field('updated_at');
+//            $show->field('created_at');
+//            $show->field('updated_at');
         });
     }
 
@@ -68,7 +69,6 @@ class HnMenuController extends AdminController
     protected function form()
     {
         return Form::make(new HnMenu(), function (Form $form) {
-//            $form->display('id');
             $form->text('name');
             $form->select('pid')->options(function ($id) {
                 return \App\Models\HnMenu::GetRoots($id);
@@ -77,9 +77,6 @@ class HnMenuController extends AdminController
             $form->select('type')->options(Constants::Menu_Type);
             $form->icon('icon');
             $form->number('sort')->default(0)->min(0)->max(10000);
-
-//            $form->display('created_at');
-//            $form->display('updated_at');
         });
     }
 }
