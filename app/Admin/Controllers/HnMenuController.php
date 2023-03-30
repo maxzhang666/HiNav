@@ -28,7 +28,7 @@ class HnMenuController extends AdminController
             $grid->column('created_at')->sortable();
             $grid->column('updated_at')->sortable();
 
-            $grid->disableEditButton();
+//            $grid->disableEditButton();
 //            $grid->enableDialogCreate();
             $grid->showQuickEditButton();
 
