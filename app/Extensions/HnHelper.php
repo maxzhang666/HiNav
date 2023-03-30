@@ -139,7 +139,7 @@ class HnHelper
             return $url;
         }
         $url = rtrim($url, "/");
-        if (admin_setting(Constants::Other_Icon_Source_Https, 0) || $is_format) {
+        if (!admin_setting(Constants::Other_Icon_Source_Https, 0) || $is_format) {
             $pattern = '@^(?:https?://)?([^/]+)@i';
             $result = preg_match($pattern, $url, $matches);
             return $matches[1];
