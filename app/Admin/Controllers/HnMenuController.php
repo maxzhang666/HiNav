@@ -68,7 +68,7 @@ class HnMenuController extends AdminController
     protected function form()
     {
         return Form::make(new HnMenu(), function (Form $form) {
-            $form->display('id');
+//            $form->display('id');
             $form->text('name');
             $form->select('pid')->options(function ($id) {
                 return \App\Models\HnMenu::GetRoots($id);
@@ -78,8 +78,8 @@ class HnMenuController extends AdminController
             $form->icon('icon');
             $form->number('sort')->default(0)->min(0)->max(10000);
 
-            $form->display('created_at');
-            $form->display('updated_at');
+//            $form->display('created_at');
+//            $form->display('updated_at');
         });
     }
 }
