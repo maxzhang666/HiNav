@@ -21,12 +21,16 @@ class HnMenuController extends AdminController
         return Grid::make(new HnMenu(), function (Grid $grid) {
             $grid->column('id')->sortable();
             $grid->column('name');
-            $grid->column('pid')->select(\App\Models\HnMenu::GetRoots(),true)->width(160);// using(\App\Models\HnMenu::GetRoots())->editable();
+            $grid->column('pid')->select(\App\Models\HnMenu::GetRoots(), true)->width(160);// using(\App\Models\HnMenu::GetRoots())->editable();
             $grid->column('link');
             $grid->column('type')->using(Constants::Menu_Type);
             $grid->column('icon');
             $grid->column('created_at')->sortable();
             $grid->column('updated_at')->sortable();
+
+            $grid->disableEditButton();
+            $grid->enableDialogCreate();
+            $grid->showQuickEditButton();
 
             $grid->filter(function (Grid\Filter $filter) {
                 $filter->equal('id');
