@@ -29,7 +29,7 @@ class HnMenuController extends AdminController
             $grid->column('updated_at')->sortable();
 
             $grid->disableEditButton();
-            $grid->enableDialogCreate();
+//            $grid->enableDialogCreate();
             $grid->showQuickEditButton();
 
             $grid->filter(function (Grid\Filter $filter) {
