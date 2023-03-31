@@ -17,8 +17,8 @@ class CreateHnItemTable extends Migration
             $table->increments('id');
             $table->string('name')->default('')->comment('名称');
             $table->integer('cat')->comment('所属分类');
-            $table->string('desc')->default('')->comment('简介');
-            $table->string('desc_min')->default('')->comment('一句话简介');
+            $table->string('desc')->nullable()->comment('简介');
+            $table->string('desc_min')->nullable()->comment('一句话简介');
             $table->integer('type')->default(1)->comment('类型，1网址2公众号/小程序');
             $table->string('link')->default('')->comment('地址');
             $table->string('icon')->default('')->nullable()->comment('图标');
