@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\Route;
 Admin::routes();
 
 Route::group([
-    'prefix' => config('admin.route.prefix'),
-    'namespace' => config('admin.route.namespace'),
+    'prefix'     => config('admin.route.prefix'),
+    'namespace'  => config('admin.route.namespace'),
     'middleware' => config('admin.route.middleware'),
 ], function (Router $router) {
 
@@ -26,4 +26,6 @@ Route::group([
     $router->get('setting/basic_setting', 'SettingController@basic_setting');
     $router->get('setting/other_setting', 'SettingController@other_setting');
     $router->get('setting/ads_setting', 'SettingController@ads_setting');
+    $router->get('setting/api_setting', 'SettingController@api_setting');
+
 });

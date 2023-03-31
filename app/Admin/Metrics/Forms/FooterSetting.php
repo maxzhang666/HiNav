@@ -24,14 +24,10 @@ class FooterSetting extends Form
 
     public function form()
     {
-        $this->tab('页脚配置', function (Form $form) {
-            $form->text(Constants::Footer_Beian_No, '备案号');
-        });
+
+        $this->text(Constants::Footer_Beian_No, '备案号');
 
         $this->textarea(Constants::Footer_CopyRight, '版权信息')->rows(3)->help('版权信息');
-
-
-
         $this->textarea(Constants::Footer_Analytics_Code, '统计代码')->rows(3)->help('统计代码');
 
     }
