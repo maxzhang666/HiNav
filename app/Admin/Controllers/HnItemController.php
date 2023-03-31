@@ -13,9 +13,9 @@ use Dcat\Admin\Show;
 class HnItemController extends AdminController
 {
     protected $description = [
-        'index' => '列表-不可选有子级的分类作为网址分类',
-        'show' => '详情',
-        'edit' => '编辑-不可选有子级的分类作为网址分类',
+        'index'  => '列表-不可选有子级的分类作为网址分类',
+        'show'   => '详情',
+        'edit'   => '编辑-不可选有子级的分类作为网址分类',
         'create' => '创建',
     ];
 
@@ -114,7 +114,7 @@ class HnItemController extends AdminController
 
             $form->text('language')->default('中文');
             $form->text('country')->default('中国');
-            $form->number('sort')->default(0);
+            $form->number('sort')->default(\App\Models\HnItem::all()->count() + 1);
 
 //            $form->display('created_at');
 //            $form->display('updated_at');
