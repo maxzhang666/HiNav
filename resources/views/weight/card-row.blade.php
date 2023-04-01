@@ -1,8 +1,15 @@
 @php use App\Extensions\Constants;use App\Models\HnMenu;use Jenssegers\Agent\Facades\Agent; @endphp
 @php
     $icon='icon-tag';
+    $showParentName  =admin_setting(Constants::Index_Tab_Parent_Name,0);
     if ($pmenu!=''&& !empty($pmenu->icon)){
-        $icon=$pmenu->icon;
+        if (!$showParentName){
+            if (!empty($menu->icon)){
+                $icon=$menu->icon;
+            }
+        }else{
+            $icon= $pmenu->icon;
+        }
     }else if($pmenu==''&&!empty($menu->icon)){
         $icon=$menu->icon;
     }
@@ -24,7 +31,7 @@
 <div class="d-flex flex-fill ">
     <h4 class="text-gray text-lg mb-4">
         <i class="site-tag iconfont {!! $icon !!} icon-lg mr-1" id="term-{!! $menu->id !!}"></i>
-        @if ($pmenu != "" && admin_setting(Constants::Index_Tab_Parent_Name,0) && !Agent::isPhone())
+        @if ($pmenu != "" && $showParentName && !Agent::isPhone())
             {{$pmenu->name}}<span style="color:#f1404b"> · </span>
         @endif
         {!! $menu->name !!}
