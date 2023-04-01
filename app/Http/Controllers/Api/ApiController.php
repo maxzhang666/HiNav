@@ -14,8 +14,14 @@ class ApiController extends Controller
 
     public function menus(): JsonResponse
     {
-        //$pid = request()->input('pid', 0);
-        $res = HnMenu::where('pid', '!=', 0)->select(['id', 'name'])->get()->toArray();
+        $res = [];
+        $menus = HnMenu::select(['id', 'pid', 'name'])->get();
+        foreach ($menus as &$menu) {
+            if ($menus->where('pid', $menu['id'])->count() > 0) {
+                continue;
+            }
+            $res[] = $menu->toArray();
+        }
         return $this->success($res);
     }
 
