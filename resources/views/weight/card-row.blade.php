@@ -3,6 +3,8 @@
     $icon='icon-tag';
     if ($pmenu!=''&& !empty($pmenu->icon)){
         $icon=$pmenu->icon;
+    }else if($pmenu==''&&!empty($menu->icon)){
+        $icon=$menu->icon;
     }
 
         //        $taxonomy = $mid['object'];
