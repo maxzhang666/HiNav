@@ -34,12 +34,14 @@ class ApiController extends Controller
         if (HnItem::whereLink($url)->exists()) {
             return $this->fail([], '已存在该站点');
         }
+        $sort = HnItem::all()->count() + 1;
 
         $hnItem = new HnItem();
         $hnItem->name = $name;
         $hnItem->link = $url;
         $hnItem->desc_min = $desc;
         $hnItem->cat = $cat;
+        $hnItem->sort = $sort;
         $hnItem->save();
         return $this->success();
     }
