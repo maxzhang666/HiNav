@@ -22,4 +22,5 @@ Route::middleware('api.auth')->group(function () {
     //    return 1;
     //});
     Route::post('menus', 'App\Http\Controllers\Api\ApiController@menus');
+    Route::post('add_site', 'App\Http\Controllers\Api\ApiController@addSite');
 });
