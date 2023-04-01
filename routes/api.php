@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::middleware('api.auth')->group(function () {
+    //Route::post('menus', function () {
+    //    return 1;
+    //});
+    Route::post('menus', 'App\Http\Controllers\Api\ApiController@menus');
+});
