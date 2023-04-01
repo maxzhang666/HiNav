@@ -13,6 +13,7 @@ class HnMenuController extends AdminController
 {
 
     protected $title = '菜单管理';
+
     /**
      * Make a grid builder.
      *
@@ -23,13 +24,14 @@ class HnMenuController extends AdminController
         return Grid::make(new HnMenu(), function (Grid $grid) {
 
             $grid->column('id')->sortable();
+            $grid->column('sort', '排序')->editable()->sortable();
             $grid->column('name');
             $grid->column('pid')->select(\App\Models\HnMenu::GetRoots(), true)->width(160);// using(\App\Models\HnMenu::GetRoots())->editable();
             $grid->column('link');
             $grid->column('type')->using(Constants::Menu_Type);
             $grid->column('icon');
-            $grid->column('created_at')->sortable();
-            $grid->column('updated_at')->sortable();
+            //$grid->column('created_at')->sortable();
+            //$grid->column('updated_at')->sortable();
 
             $grid->disableEditButton();
             $grid->disableViewButton();
