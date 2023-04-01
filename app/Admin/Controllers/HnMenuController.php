@@ -81,7 +81,7 @@ class HnMenuController extends AdminController
             $form->text('link')->default("#");
             $form->select('type')->options(Constants::Menu_Type);
             $form->icon('icon');
-            $form->number('sort')->default(0)->min(0)->max(10000);
+            $form->number('sort')->default(\App\Models\HnMenu::all()->count() + 1)->min(0)->max(10000);
         });
     }
 }
