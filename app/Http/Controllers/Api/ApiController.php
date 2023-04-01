@@ -25,11 +25,14 @@ class ApiController extends Controller
         $url = request()->input('url', '');
         $desc = request()->input('desc', '');
         $cat = request()->input('cat', 0);
+        if (HnItem::whereLink($url)->exists()) {
+            return $this->fail([], '已存在该站点');
+        }
 
         $hnItem = new HnItem();
         $hnItem->name = $name;
         $hnItem->link = $url;
-        $hnItem->desc = $desc;
+        $hnItem->desc_min = $desc;
         $hnItem->cat = $cat;
         $hnItem->save();
         return $this->success();
