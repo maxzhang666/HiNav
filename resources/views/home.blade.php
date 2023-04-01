@@ -12,10 +12,10 @@
     @foreach($top_root_menus as $root_menu)
         @if($root_menu->sub_menus->count()>0)
             @foreach($root_menu->sub_menus as $item)
-                @include('weight.card-row',['pname'=>$root_menu->name,'menu'=>$item])
+                @include('weight.card-row',['pmenu'=>$root_menu,'menu'=>$item])
             @endforeach
         @else
-            @include('weight.card-row',['pname'=>'','menu'=>$root_menu])
+            @include('weight.card-row',['pmenu'=>'','menu'=>$root_menu])
         @endif
     @endforeach
 @endsection

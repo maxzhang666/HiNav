@@ -1,6 +1,9 @@
 @php use App\Extensions\Constants;use App\Models\HnMenu;use Jenssegers\Agent\Facades\Agent; @endphp
 @php
     $icon='icon-tag';
+    if ($pmenu!=''&& !empty($pmenu->icon)){
+        $icon=$pmenu->icon;
+    }
 
         //        $taxonomy = $mid['object'];
         //        $quantity = io_get_option('card_n');
@@ -19,8 +22,8 @@
 <div class="d-flex flex-fill ">
     <h4 class="text-gray text-lg mb-4">
         <i class="site-tag iconfont {!! $icon !!} icon-lg mr-1" id="term-{!! $menu->id !!}"></i>
-        @if ($pname != "" && admin_setting(Constants::Index_Tab_Parent_Name,0) && !Agent::isPhone())
-            {{$pname}}<span style="color:#f1404b"> · </span>
+        @if ($pmenu != "" && admin_setting(Constants::Index_Tab_Parent_Name,0) && !Agent::isPhone())
+            {{$pmenu->name}}<span style="color:#f1404b"> · </span>
         @endif
         {!! $menu->name !!}
     </h4>
