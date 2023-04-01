@@ -20,6 +20,8 @@ class IndexSetting extends Form
             Constants::Site_Description,
             Constants::Site_Keywords,
             Constants::Site_Url,
+            Constants::Site_Custom_Css_Switch,
+            Constants::Site_Custom_Css,
 
             Constants::Index_Card_Prompt,
             Constants::Index_Block_Columns,
@@ -52,6 +54,10 @@ class IndexSetting extends Form
             $form->text(Constants::Site_Url, '站点地址')->required();
             $form->text(Constants::Site_Keywords, '站点关键词')->required();
             $form->textarea(Constants::Site_Description, '站点描述')->required();
+            $this->divider();
+            $form->radio(Constants::Site_Custom_Css_Switch, '自定义CSS')->options(Constants::Data_Switch)->help('自定义CSS')->default(0)->when(1, function (Form $form) {
+                $form->textarea(Constants::Site_Custom_Css, '自定义CSS')->rows(3)->help('自定义CSS');
+            });
         });
 
 

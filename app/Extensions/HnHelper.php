@@ -43,6 +43,9 @@ class HnHelper
             case 4:
                 $class = ' col-sm-6 col-md-4 col-xl-3 ';
                 break;
+            case 5:
+                $class = ' col-sm-6 col-md-4 col-xl-4a col-xxl-5a ';
+                break;
             case 6:
                 $class = ' col-sm-6 col-md-4 col-xl-5a col-xxl-6a ';
                 break;

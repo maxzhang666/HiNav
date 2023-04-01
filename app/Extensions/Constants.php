@@ -9,6 +9,8 @@ final class Constants
     const Site_Description = 'site_description';
     const Site_Keywords = 'site_keywords';
     const Site_Url = 'site_url';
+    const Site_Custom_Css_Switch = 'site_custom_css_switch';
+    const Site_Custom_Css = 'site_custom_css';
 
     #endregion
 
