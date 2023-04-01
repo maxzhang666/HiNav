@@ -31,6 +31,7 @@ class ApiController extends Controller
         $url = request()->input('url', '');
         $desc = request()->input('desc', '');
         $cat = request()->input('cat', 0);
+        $icon = request()->input('icon', '');
         if (HnItem::whereLink($url)->exists()) {
             return $this->fail([], '已存在该站点');
         }
@@ -38,6 +39,7 @@ class ApiController extends Controller
 
         $hnItem = new HnItem();
         $hnItem->name = $name;
+        $hnItem->icon = $icon;
         $hnItem->link = $url;
         $hnItem->desc_min = $desc;
         $hnItem->cat = $cat;

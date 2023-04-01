@@ -36,10 +36,10 @@ class HnItemController extends AdminController
             $grid->column('name');
             $grid->column('cat', '分类')->select(HnMenu::GetPids(-1, false))->width(200);
             $grid->column('desc_min', '一句话简介')->limit(20);
-            $grid->column('type', '类型')->using(Constants::Data_HnItem_Type);
-            $grid->column('icon', '图标')->display(function ($icon) {
+            $grid->column('type', '类型')->using(Constants::Data_HnItem_Type)->badge('success');
+            $grid->column('icon', '图标')->display(function ($icon) use ($grid) {
                 if (empty($icon)) {
-                    return '自动';
+                    return '<span class="badge" style="background:#586cb1">自动</span>';
                 }
                 return "<img src='$icon' width='50' height='50'>";
             });
@@ -71,7 +71,8 @@ class HnItemController extends AdminController
      *
      * @return Show
      */
-    protected function detail($id)
+    protected
+    function detail($id)
     {
         return Show::make($id, new HnItem(), function (Show $show) {
             $show->field('id');
@@ -95,7 +96,8 @@ class HnItemController extends AdminController
      *
      * @return Form
      */
-    protected function form()
+    protected
+    function form()
     {
         return Form::make(new HnItem(), function (Form $form) {
             $form->display('id');
