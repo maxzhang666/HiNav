@@ -55,14 +55,14 @@ class HnMenuController extends AdminController
     protected function detail($id)
     {
         return Show::make($id, new HnMenu(), function (Show $show) {
-//            $show->field('id');
+            //$show->field('id');
             $show->field('name');
             $show->field('pid')->using(\App\Models\HnMenu::GetRoots());
             $show->field('link');
             $show->field('type')->using(Constants::Menu_Type);
             $show->field('icon');
-//            $show->field('created_at');
-//            $show->field('updated_at');
+            //$show->field('created_at');
+            //$show->field('updated_at');
         });
     }
 

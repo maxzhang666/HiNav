@@ -8,12 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * App\Models\HnMenu
  *
- * @property int $id
- * @property string $name
- * @property string $pid
- * @property string $link
- * @property string $type
- * @property string $icon
+ * @property int                             $id
+ * @property string                          $name
+ * @property string                          $pid
+ * @property string                          $link
+ * @property string                          $type
+ * @property string                          $icon
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|HnMenu newModelQuery()
@@ -27,7 +27,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|HnMenu wherePid($value)
  * @method static \Illuminate\Database\Eloquent\Builder|HnMenu whereType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|HnMenu whereUpdatedAt($value)
- * @property int $sort 排序
+ * @property int                             $sort 排序
  * @method static \Illuminate\Database\Eloquent\Builder|HnMenu whereSort($value)
  * @mixin \Eloquent
  */
