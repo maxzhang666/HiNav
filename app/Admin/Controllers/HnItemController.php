@@ -30,6 +30,7 @@ class HnItemController extends AdminController
     {
         return Grid::make(new HnItem(), function (Grid $grid) {
 
+            $grid->model()->orderByDesc('id');
 
             $grid->column('id')->sortable();
             $grid->column('sort', '排序')->editable()->sortable();
