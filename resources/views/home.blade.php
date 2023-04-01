@@ -2,7 +2,7 @@
 @extends('layouts.main')
 @section("content")
     @php
-        $all_menus=HnMenu::all();
+        $all_menus=HnMenu::all()->sortByDesc('sort');
         $hn_menus = $all_menus->where('type','=', Constants::Menu_Type_Data['侧边主菜单']);
         $top_root_menus = $hn_menus->where('pid','=', 0);
         foreach ($top_root_menus as &$menu){
