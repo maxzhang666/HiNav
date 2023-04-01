@@ -41,7 +41,7 @@ class HnItemController extends AdminController
                 if (empty($icon)) {
                     return '<span class="badge" style="background:#586cb1">自动</span>';
                 }
-                return "<img src='$icon' width='50' height='50'>";
+                return "<img src='$icon' width='40' height='40'>";
             });
             $grid->column('link');
             $grid->column('bak_link');
