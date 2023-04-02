@@ -6,7 +6,7 @@
         $hn_menus = $all_menus->where('type','=', Constants::Menu_Type_Data['侧边主菜单']);
         $top_root_menus = $hn_menus->where('pid','=', 0);
         foreach ($top_root_menus as &$menu){
-            $menu->sub_menus = $hn_menus->where('pid','=', $menu->id);
+            $menu->sub_menus = $hn_menus->where('pid','=', $menu->id)->sortByDesc('sort');
         }
     @endphp
     @foreach($top_root_menus as $root_menu)
