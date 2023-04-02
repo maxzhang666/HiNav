@@ -25,7 +25,7 @@ class HomeController extends Controller
             return redirect()->route('home');
         }
         try {
-            $url = base64_decode($url);
+            $url = base64_decode(urldecode($url));
         } catch (\Exception $e) {
             return redirect()->route('home');
         }

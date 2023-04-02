@@ -96,11 +96,13 @@ class HnHelper
 
     public static function go_to($url)
     {
+        $url = trim($url);
         if (admin_setting(Constants::Basic_Url_Go_To, 0) == 1) {
-            if (HnHelper::go_exclude($url))
+            if (HnHelper::go_exclude($url)) {
                 return $url;
-            else
+            } else {
                 return route('goto', ['url' => urlencode(base64_encode($url))]);
+            }
         } else {
             return $url;
         }
