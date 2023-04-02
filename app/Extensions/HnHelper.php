@@ -97,11 +97,10 @@ class HnHelper
     public static function go_to($url)
     {
         if (admin_setting(Constants::Basic_Url_Go_To, 0) == 1) {
-
             if (HnHelper::go_exclude($url))
                 return $url;
             else
-                return '/go/?url=' . urlencode(base64_encode($url));
+                return route('goto',['url'=>urlencode(base64_encode($url))]);
         } else {
             return $url;
         }

@@ -1,6 +1,6 @@
 @php use App\Extensions\Constants; @endphp
 @php
-    $jumpUrl  = $url."?ref=". admin_setting(Constants::Site_Url);
+    $jumpUrl  = $gotoUrl."?ref=". admin_setting(Constants::Site_Url);
     $siteTitle=admin_setting(Constants::Site_Title);
 @endphp
     <!DOCTYPE html>
@@ -374,7 +374,7 @@
                 <div class="loading-text">请注意您的账号和财产安全</div>
             </div>
             <div class="loading-topic">
-                您即将离开{!! $siteTitle !!}，去往：<span class="loading-url">{!! $url !!}</span>
+                您即将离开{!! $siteTitle !!}，去往：<span class="loading-url">{!! $gotoUrl !!}</span>
             </div>
             <div class="flex flex-center">
                 <div class="taxt-auto"><span id="time" class="auto-second">5</span>秒后自动跳转</div>

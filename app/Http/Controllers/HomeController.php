@@ -29,6 +29,6 @@ class HomeController extends Controller
         } catch (\Exception $e) {
             return redirect()->route('home');
         }
-        return $this->view('goto', ['url' => $url]);
+        return $this->view('goto', ['gotoUrl' => $url]);
     }
 }

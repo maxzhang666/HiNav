@@ -16,3 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
 
 Route::get('/tool/canvas', 'App\Http\Controllers\ToolController@canvas')->name('tool.canvas');
+
+Route::get('/goto/', 'App\Http\Controllers\HomeController@goto')->name('goto');

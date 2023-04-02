@@ -1,6 +1,6 @@
 @php
     use App\Extensions\Constants;use App\Extensions\HnHelper;$sites_type = $site->type;
-    $link_url = $site->link;
+    $link_url = HnHelper::go_to($site->link);
     $title = $site->name;
     $is_html = '';
     $width = 128;
