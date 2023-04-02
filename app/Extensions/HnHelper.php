@@ -14,7 +14,7 @@ class HnHelper
     public static function get_theme_mode()
     {
         $default_c = $theme_mode = admin_setting(Constants::Color_Theme);
-        $res_mode='';
+        $res_mode = '';
         if ($default_c == 'black_mode') {
             $default_c = '';
         }
@@ -100,7 +100,7 @@ class HnHelper
             if (HnHelper::go_exclude($url))
                 return $url;
             else
-                return route('goto',['url'=>urlencode(base64_encode($url))]);
+                return route('goto', ['url' => urlencode(base64_encode($url))]);
         } else {
             return $url;
         }
@@ -109,9 +109,7 @@ class HnHelper
     public static function go_exclude($url): bool
     {
         $exclude_links = array();
-        $site = get_option('home');
-        if (!$site)
-            $site = get_option('siteurl');
+        $site = admin_setting(Constants::Site_Url);
         $site = str_replace(array("http://", "https://"), '', $site);
         $p = strpos($site, '/');
         if ($p !== FALSE)
