@@ -1,4 +1,4 @@
-@php use App\Extensions\Constants; @endphp
+@php use App\Extensions\Constants;use App\Extensions\HnHelper; @endphp
 @php
     $search_position = json_decode(admin_setting(Constants::Index_Search_Position,"[]"));
 @endphp
@@ -32,7 +32,7 @@
         "addico": "http:\/\/onenav\/wp-content\/themes\/WebStack%20Pro\/images\/add.png",
         "order": "asc",
         "formpostion": "top",
-        "defaultclass": "white_mode",
+        "defaultclass": "{!! admin_setting(Constants::Color_Theme) !!}",
         "isCustomize": "",
         "icourl": "https:\/\/api.iowen.cn\/favicon\/",
         "icopng": ".png",
