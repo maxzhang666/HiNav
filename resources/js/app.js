@@ -146,16 +146,16 @@ require('./bootstrap');
     $(document).on('click', '.switch-dark-mode', function(event) {
         event.preventDefault();
         $.ajax({
-            url: theme.ajaxurl,
+            url: theme.switch_dark_mode,
             type: 'POST',
             dataType: 'html',
             data: {
-                mode_toggle: $('body').hasClass('io-black-mode') === true ? 1 : 0,
+                mode_toggle: $('body').hasClass('black_mode') === true ? 1 : 0,
                 action: 'switch_dark_mode',
             },
         })
             .done(function(response) {
-                $('body').toggleClass('io-black-mode '+theme.defaultclass);
+                $('body').toggleClass('black_mode '+theme.defaultclass);
                 switch_mode();
                 $("#"+ $('.switch-dark-mode').attr('aria-describedby')).remove();
                 //$('.switch-dark-mode').removeAttr('aria-describedby');

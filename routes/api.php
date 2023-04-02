@@ -23,4 +23,5 @@ Route::middleware('api.auth')->group(function () {
     //});
     Route::post('menus', 'App\Http\Controllers\Api\ApiController@menus');
     Route::post('add_site', 'App\Http\Controllers\Api\ApiController@addSite');
+    Route::post('switch_dark_mode', 'App\Http\Controllers\Api\ApiController@switchMode')->name('api.switch_dark_mode');
 });

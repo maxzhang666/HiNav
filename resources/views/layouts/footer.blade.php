@@ -28,10 +28,11 @@
     /* <![CDATA[ */
     var theme = {
         "ajaxurl": "http:\/\/onenav\/wp-admin\/admin-ajax.php",
+        "switch_dark_mode": "{!! route('api.switch_dark_mode') !!}",
         "addico": "http:\/\/onenav\/wp-content\/themes\/WebStack%20Pro\/images\/add.png",
         "order": "asc",
         "formpostion": "top",
-        "defaultclass": "io-white-mode",
+        "defaultclass": "white_mode",
         "isCustomize": "",
         "icourl": "https:\/\/api.iowen.cn\/favicon\/",
         "icopng": ".png",

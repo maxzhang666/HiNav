@@ -6,7 +6,9 @@ use App\Extensions\ApiResult;
 use App\Http\Controllers\Controller;
 use App\Models\HnItem;
 use App\Models\HnMenu;
+use Illuminate\Contracts\Cookie\Factory;
 use Illuminate\Http\JsonResponse;
+
 
 class ApiController extends Controller
 {
@@ -46,5 +48,14 @@ class ApiController extends Controller
         $hnItem->sort = $sort;
         $hnItem->save();
         return $this->success();
+    }
+
+    public function switchMode(Factory $factory)
+    {
+        $mode = request()->input('mode_toggle');
+
+        //$factory->forever('night_mode',$mode);
+
+        return $this->success()->withCookie($factory->forever('night_mode',$mode));
     }
 }

@@ -71,7 +71,7 @@ class IconSetting extends Form
 
             $form->text(Constants::Icon_Favicon, 'Favicon图标')
                 ->help('Favicon图标，建议尺寸：16x16，格式：.ico')
-                ->default(asset('asset/imgs/favicon.png'));
+                ->default(asset('asset/imgs/favicon.ico'));
             if (admin_setting(Constants::Icon_Favicon)) {
                 $form->display('当前Favicon')->with(function () {
                     return '<img src="' . admin_setting(Constants::Icon_Favicon) . '" alt="Favicon图标" style="width: 16px;height: 16px;">';
@@ -80,7 +80,7 @@ class IconSetting extends Form
 
             $form->text(Constants::Icon_Favicon_Apple, 'Favicon图标（苹果）')
                 ->help('Favicon图标（苹果），建议尺寸：180x180，格式：.png')
-                ->default(asset('asset/imgs/favicon.png'));
+                ->default(asset('asset/imgs/favicon.ico'));
 
             if (admin_setting(Constants::Icon_Favicon_Apple)) {
                 $form->display('当前Favicon（苹果）')->with(function () {

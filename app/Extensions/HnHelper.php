@@ -4,7 +4,6 @@ namespace App\Extensions;
 
 use App\Models\HnItem;
 use Dcat\Admin\Support\Setting;
-use Illuminate\Support\Facades\Cookie;
 
 class HnHelper
 {
@@ -15,16 +14,17 @@ class HnHelper
     public static function get_theme_mode()
     {
         $default_c = $theme_mode = admin_setting(Constants::Color_Theme);
-        if ($default_c == 'black-mode') {
+        $res_mode='';
+        if ($default_c == 'black_mode') {
             $default_c = '';
         }
-        $night_mode = Cookie::get('night_mode');
+        $night_mode = request()->cookie('night_mode');
         if ($night_mode != '') {
-            return (trim($night_mode) == '0' ? 'black-mode' : $default_c);
+            return (trim($night_mode) == '0' ? 'black_mode' : $default_c);
         } elseif ($theme_mode) {
             return $theme_mode;
         } else {
-            return (trim($night_mode) == '0' ? 'black-mode' : $default_c);
+            return (trim($night_mode) == '0' ? 'black_mode' : $default_c);
         }
     }
 
