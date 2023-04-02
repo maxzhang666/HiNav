@@ -1,6 +1,6 @@
 @php
     use App\Extensions\Constants;use App\Extensions\HnHelper;$sites_type = $site->type;
-    $link_url = HnHelper::go_to($site->link);
+    $link_url = $site->link;
     $title = $site->name;
     $is_html = '';
     $width = 128;
@@ -81,7 +81,7 @@
 @endphp
 <div class="url-body default">
     {{--    详情页面埋点--}}
-    <a href="{!! $link_url !!}" {!! $blank !!} {!! $site->type==1&& admin_setting(Constants::Basic_Url_Go_To,0)==1? '':HnHelper:: nofollow($link_url, true)!!} data-url="<?php echo rtrim($link_url, "/") ?>"
+    <a href="{!! HnHelper:: go_to($link_url) !!}" {!! $blank !!} {!! $site->type==1&& admin_setting(Constants::Basic_Url_Go_To,0)==1? '':HnHelper:: nofollow($link_url, true)!!} data-url="<?php echo rtrim($link_url, "/") ?>"
        class="card no-c <?php echo $is_views ?> mb-4 site-{!! $site->id !!}" {!! $tooltip.' '.$is_html !!} title="{{$title}}">
         <div class="card-body">
             <div class="url-content d-flex align-items-center">
