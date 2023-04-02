@@ -92,13 +92,14 @@ final class Constants
     #region 颜色配置
     const Color_Theme = 'color_theme';
     const Color_Theme_Data = [
-//        '深色' => 'dark',
-//        '黑白' => 'black_white',
-//        '浅灰' => 'light_gray',
+        //'深色' => 'dark',
+        //'黑白' => 'black_white',
+        //'浅灰' => 'light_gray',
 
-'black_mode' => '深色',
-'white_mode' => '亮色',
-'grey_mode'  => '亮灰',
+
+        'black_mode' => '深色',
+        'white_mode' => '亮色',
+        'grey_mode'  => '亮灰',
     ];
 
     const Color_Full_Loading = 'color_full_loading';
