@@ -153,21 +153,10 @@ require('./bootstrap');
     //夜间模式
     $(document).on('click', '.switch-dark-mode', function (event) {
         event.preventDefault();
-        $.ajax({
-            url: theme.switch_dark_mode,
-            type: 'POST',
-            dataType: 'html',
-            data: {
-                mode_toggle: $('body').hasClass('black_mode') === true ? 1 : 0,
-                action: 'switch_dark_mode',
-            },
-        })
-            .done(function (response) {
-                $('body').toggleClass('black_mode ' + theme.defaultclass);
-                switch_mode();
-                $("#" + $('.switch-dark-mode').attr('aria-describedby')).remove();
-                //$('.switch-dark-mode').removeAttr('aria-describedby');
-            })
+        $('body').toggleClass('black_mode ' + theme.defaultclass);
+        switch_mode();
+        $("#" + $('.switch-dark-mode').attr('aria-describedby')).remove();
+        setCookie("night_mode", $('body').hasClass('black_mode') ? 0 : 1, 30)
     });
 
     function switch_mode() {
@@ -187,6 +176,18 @@ require('./bootstrap');
             $(".mode-ico").removeClass("icon-light");
             $(".mode-ico").addClass("icon-night");
         }
+    }
+
+    function setCookie(key, value, exp) {
+        let i = "";
+        if ("" != exp) {
+            let o = new Date;
+            o.setTime(o.getTime() + 24 * exp * 60 * 60 * 1e3),
+                i = "expires=" + o.toGMTString()
+        }
+        let cookie = key + "=" + value + "; " + i + "; path=/"
+        // console.log(cookie)
+        document.cookie = cookie
     }
 
     //返回顶部
