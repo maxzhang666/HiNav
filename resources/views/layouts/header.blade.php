@@ -23,14 +23,14 @@
             {!! admin_setting(Constants::Site_Custom_Css) !!}
         </style>
     @endif
-    <link rel='stylesheet' href='{{asset("asset/css/all.min.css",!env('APP_DEBUG',false))}}' type='text/css' media='all'/>
-    <link rel='stylesheet' href='{{asset("asset/css/v4-shims.min.css",!env('APP_DEBUG',false))}}' type='text/css' media='all'/>
-    <link rel='stylesheet' href='{{asset("asset/css/iconfont.css",!env('APP_DEBUG',false))}}' type='text/css' media='all'/>
+    <link rel='stylesheet' href='{{asset("asset/css/all.min.css")}}' type='text/css' media='all'/>
+    <link rel='stylesheet' href='{{asset("asset/css/v4-shims.min.css")}}' type='text/css' media='all'/>
+    <link rel='stylesheet' href='{{asset("asset/css/iconfont.css")}}' type='text/css' media='all'/>
     @if(admin_setting(Constants::Other_IconFont_Switch,0)==1&&!empty(admin_setting(Constants::Other_IconFont_Url)))
         <link rel='stylesheet' href='{{admin_setting(Constants::Other_IconFont_Url)}}' type='text/css' media='all'/>
     @endif
-    <link rel='stylesheet' href='{{asset("asset/css/bootstrap.min.css",!env('APP_DEBUG',false))}}' type='text/css' media='all'/>
-    <link rel='stylesheet' href='{{asset("asset/css/jquery.fancybox.min.css",!env('APP_DEBUG',false))}}' type='text/css' media='all'/>
+    <link rel='stylesheet' href='{{asset("asset/css/bootstrap.min.css")}}' type='text/css' media='all'/>
+    <link rel='stylesheet' href='{{asset("asset/css/jquery.fancybox.min.css")}}' type='text/css' media='all'/>
     <link rel='stylesheet' href='{{mix("asset/css/app.css")}}' type='text/css' media='all'/>
     <script type='text/javascript' src='{{asset("asset/js/jquery.min.js")}}'></script>
     <script type='text/javascript' id='jquery-js-after'>
