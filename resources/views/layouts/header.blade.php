@@ -32,7 +32,7 @@
     <link rel='stylesheet' href='{{asset("asset/css/bootstrap.min.css",!env('APP_DEBUG',false))}}' type='text/css' media='all'/>
     <link rel='stylesheet' href='{{asset("asset/css/jquery.fancybox.min.css",!env('APP_DEBUG',false))}}' type='text/css' media='all'/>
     <link rel='stylesheet' href='{{mix("asset/css/app.css")}}' type='text/css' media='all'/>
-    <script type='text/javascript' src='{{asset("asset/js/jquery.min.js",!env('APP_DEBUG',false))}}'></script>
+    <script type='text/javascript' src='{{asset("asset/js/jquery.min.js")}}'></script>
     <script type='text/javascript' id='jquery-js-after'>
         /* <![CDATA[ */
         function loadFunc(func) {
