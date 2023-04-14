@@ -1201,7 +1201,54 @@ HTML,
 
 </body>
 </html>
-HTML
+HTML,
+            8=><<<HTML
+
+<!DOCTYPE html>
+<html lang="zh" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>地球</title>
+</head>
+
+<body>
+<div class="bg-video">
+<video class="vl" autoplay muted loop style="width: 100%;height: auto;"><source src="/asset/video/earth2.mp4">
+</video>
+</div>
+
+<style>
+.bg-video{
+
+    width:100%;
+
+    height:auto;
+
+    left:0px;
+
+    top:0px;
+
+    z-index: -1;
+
+    vertical-align:bottom;display:block;
+
+    position:absolute;
+
+ }
+
+.v1{
+
+    width: 100%;
+
+    height: auto;
+
+}
+</style>
+</body>
+</html>
+HTML;
+
         ];
 
         return response(admin_setting(Constants::Index_Search_Background_Canvas, 0) == 0 ? $html[rand(1, 7)] : $html[admin_setting(Constants::Index_Search_Background_Canvas, 1)]);
