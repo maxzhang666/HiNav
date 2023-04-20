@@ -71,10 +71,10 @@ class HnMenu extends Model
         }
     }
 
-    public static function ListTree(): array
+    public static function ListTree($pid = 0): array
     {
 //        降序排列
-        $menus = HnMenu::select(['id', 'pid', 'name'])->orderBy('sort', 'desc')->get()->toArray();
+        $menus = HnMenu::select(['id', 'pid', 'name'])->wherePid($pid)->orderBy('sort', 'desc')->get()->toArray();
 
         $result = [];
 
@@ -98,22 +98,16 @@ class HnMenu extends Model
         return $data;
     }
 
-    public static function GetPids($pid = -1, $needRoot = true): array
+    public static function GetPids($pid = 0, $needRoot = true): array
     {
-        $list = [];
-        if ($pid == -1) {
-            $list = HnMenu::all();
-        } else {
-            $list = HnMenu::wherePid($pid)->get();
-        }
+        $list = self::ListTree($pid);
 
         $data = [];
         if ($needRoot) {
             $data = [0 => '顶级'];
         }
         foreach ($list as $item) {
-            $hasChild        = $list->where('pid', $item->id)->count() > 0;
-            $data[$item->id] = $item->name . '(' . ($hasChild ? '有子级' : '无') . ')';
+            $data[$item->id] = $item->name;
         }
         return $data;
     }
