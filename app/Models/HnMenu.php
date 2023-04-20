@@ -61,9 +61,9 @@ class HnMenu extends Model
                     $indent .= str_repeat('━', $depth);
                 }
                 // 组装线性数据
-                $line = $indent . $row['name'];
+                $row['name'] = $indent . $row['name'];
                 // 添加到结果字符串中
-                $result .= $line . PHP_EOL;
+                $result[] = $row;
                 // 递归遍历子节点
                 self::buildTree($data, $row['id'], $depth + 1, $result);
             }
