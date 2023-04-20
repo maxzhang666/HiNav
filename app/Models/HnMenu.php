@@ -107,7 +107,7 @@ class HnMenu extends Model
             $data = [0 => '顶级'];
         }
         foreach ($list as $item) {
-            $data[$item->id] = $item->name;
+            $data[$item['id']] = $item['name'];
         }
         return $data;
     }
