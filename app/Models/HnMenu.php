@@ -56,8 +56,9 @@ class HnMenu extends Model
         foreach ($data as $row) {
             if ($row['pid'] == $parentId) {
                 // 添加缩进符号
-                $indent = '┗';
+                $indent = '';
                 if ($depth > 0) {
+                    $indent = '┗';
                     $indent .= str_repeat('━', $depth);
                 }
                 // 组装线性数据
@@ -72,7 +73,8 @@ class HnMenu extends Model
 
     public static function ListTree(): array
     {
-        $menus = HnMenu::select(['id', 'pid', 'name'])->get()->toArray();
+//        降序排列
+        $menus = HnMenu::select(['id', 'pid', 'name'])->orderBy('sort', 'desc')->get()->toArray();
 
         $result = [];
 
