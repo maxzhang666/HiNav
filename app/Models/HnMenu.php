@@ -8,12 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * App\Models\HnMenu
  *
- * @property int                             $id
- * @property string                          $name
- * @property string                          $pid
- * @property string                          $link
- * @property string                          $type
- * @property string                          $icon
+ * @property int $id
+ * @property string $name
+ * @property string $pid
+ * @property string $link
+ * @property string $type
+ * @property string $icon
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|HnMenu newModelQuery()
@@ -27,7 +27,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|HnMenu wherePid($value)
  * @method static \Illuminate\Database\Eloquent\Builder|HnMenu whereType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|HnMenu whereUpdatedAt($value)
- * @property int                             $sort 排序
+ * @property int $sort 排序
  * @method static \Illuminate\Database\Eloquent\Builder|HnMenu whereSort($value)
  * @mixin \Eloquent
  */
@@ -49,6 +49,36 @@ class HnMenu extends Model
             $data[$item->Id] = $item->name;
         }
         return $data;
+    }
+
+    private static function buildTree($data, $parentId, $depth, &$result): void
+    {
+        foreach ($data as $row) {
+            if ($row['pid'] == $parentId) {
+                // 添加缩进符号
+                $indent = '┗';
+                if ($depth > 0) {
+                    $indent .= str_repeat('━', $depth);
+                }
+                // 组装线性数据
+                $line = $indent . $row['name'];
+                // 添加到结果字符串中
+                $result .= $line . PHP_EOL;
+                // 递归遍历子节点
+                self::buildTree($data, $row['id'], $depth + 1, $result);
+            }
+        }
+    }
+
+    public static function ListTree(): array
+    {
+        $menus = HnMenu::select(['id', 'pid', 'name'])->get()->toArray();
+
+        $result = [];
+
+        self::buildTree($menus, 0, 0, $result);
+
+        return $result;
     }
 
     /**
@@ -80,7 +110,7 @@ class HnMenu extends Model
             $data = [0 => '顶级'];
         }
         foreach ($list as $item) {
-            $hasChild = $list->where('pid', $item->id)->count() > 0;
+            $hasChild        = $list->where('pid', $item->id)->count() > 0;
             $data[$item->id] = $item->name . '(' . ($hasChild ? '有子级' : '无') . ')';
         }
         return $data;

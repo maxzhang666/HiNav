@@ -16,15 +16,15 @@ class ApiController extends Controller
 
     public function menus(): JsonResponse
     {
-        $res = [];
-        $menus = HnMenu::select(['id', 'pid', 'name'])->get();
-        foreach ($menus as &$menu) {
-            if ($menus->where('pid', $menu['id'])->count() > 0) {
-                continue;
-            }
-            $res[] = $menu->toArray();
-        }
-        return $this->success($res);
+//        $res = [];
+//        $menus = HnMenu::select(['id', 'pid', 'name'])->get();
+//        foreach ($menus as &$menu) {
+//            if ($menus->where('pid', $menu['id'])->count() > 0) {
+//                continue;
+//            }
+//            $res[] = $menu->toArray();
+//        }
+        return $this->success(HnMenu::ListTree());
     }
 
     public function addSite(): JsonResponse
