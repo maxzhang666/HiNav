@@ -71,10 +71,13 @@ class HnMenu extends Model
         }
     }
 
-    public static function ListTree($pid = 0): array
+    public static function ListTree($pid = -1): array
     {
-//        降序排列
-        $menus = HnMenu::select(['id', 'pid', 'name'])->wherePid($pid)->orderBy('sort', 'desc')->get()->toArray();
+        if ($pid == -1) {
+            $menus = HnMenu::select(['id', 'pid', 'name'])->orderBy('sort', 'desc')->get()->toArray();
+        } else {
+            $menus = HnMenu::select(['id', 'pid', 'name'])->wherePid($pid)->orderBy('sort', 'desc')->get()->toArray();
+        }
 
         $result = [];
 
@@ -98,7 +101,7 @@ class HnMenu extends Model
         return $data;
     }
 
-    public static function GetPids($pid = 0, $needRoot = true): array
+    public static function GetPids($pid = -1, $needRoot = true): array
     {
         $list = self::ListTree($pid);
 

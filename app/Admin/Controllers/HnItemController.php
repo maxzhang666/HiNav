@@ -35,7 +35,7 @@ class HnItemController extends AdminController
             $grid->column('id')->sortable();
             $grid->column('sort', '排序')->editable()->sortable();
             $grid->column('name');
-            $grid->column('cat', '分类')->select(HnMenu::GetPids(0, false))->width(200);
+            $grid->column('cat', '分类')->select(HnMenu::GetPids(-1, false))->width(200);
             $grid->column('desc_min', '一句话简介')->limit(20);
             $grid->column('type', '类型')->using(Constants::Data_HnItem_Type)->badge('success');
             $grid->column('icon', '图标')->display(function ($icon) use ($grid) {
@@ -58,7 +58,7 @@ class HnItemController extends AdminController
 
             $grid->filter(function (Grid\Filter $filter) {
                 $filter->equal('id');
-                $filter->equal('cat', '分类')->select(HnMenu::GetPids(0, false));
+                $filter->equal('cat', '分类')->select(HnMenu::GetPids(-1, false));
             });
 
             $grid->simplePaginate();
@@ -103,7 +103,7 @@ class HnItemController extends AdminController
         return Form::make(new HnItem(), function (Form $form) {
             $form->display('id');
             $form->text('name');
-            $form->select('cat', '分类')->options(HnMenu::GetPids(0, false))->required();
+            $form->select('cat', '分类')->options(HnMenu::GetPids(-1, false))->required();
             $form->text('desc');
             $form->text('desc_min');
             $form->radio('type', '导航类型')->options(Constants::Data_HnItem_Type)->default(1)
