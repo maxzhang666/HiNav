@@ -154,7 +154,7 @@ class HnHelper
     {
         if ($link_url != '' || ($site_type == 1 && $link_url != '')) {
             //如果图标为.png结尾
-            if (substr($link_url, -4) == '.png') {
+            if (substr($link_url, -4) == '.png' || substr($link_url, -4) == '.jpg') {
                 $ico = $link_url;
             } else {
                 $ico = (admin_setting(Constants::Other_Icon_Source) . HnHelper::format_url($link_url) . admin_setting(Constants::Other_Icon_Source_Type));
