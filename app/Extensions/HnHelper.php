@@ -14,7 +14,7 @@ class HnHelper
     public static function get_theme_mode()
     {
         $default_c = $theme_mode = admin_setting(Constants::Color_Theme);
-        $res_mode = '';
+        $res_mode  = '';
         if ($default_c == 'black_mode') {
             $default_c = '';
         }
@@ -84,7 +84,7 @@ class HnHelper
         else {
             if (admin_setting(Constants::Basic_Is_Nofollow, 0))
                 //站内白名单判断
-//                if (is_go_exclude($url))
+                //                if (is_go_exclude($url))
                 if (false)
                     return '';
                 else
@@ -111,9 +111,9 @@ class HnHelper
     public static function go_exclude($url): bool
     {
         $exclude_links = array();
-        $site = admin_setting(Constants::Site_Url);
-        $site = str_replace(array("http://", "https://"), '', $site);
-        $p = strpos($site, '/');
+        $site          = admin_setting(Constants::Site_Url);
+        $site          = str_replace(array("http://", "https://"), '', $site);
+        $p             = strpos($site, '/');
         if ($p !== FALSE)
             $site = substr($site, 0, $p);/*网站根目录被排除在屏蔽之外，不仅仅是博客网址*/
         $exclude_links[] = "http://" . $site;
@@ -125,7 +125,7 @@ class HnHelper
         $exclude_links[] = '#';/*用于内部链接*/
 
         //跳转白名单
-        $a = [];// explode(PHP_EOL, io_get_option('exclude_links'));
+        $a             = [];// explode(PHP_EOL, io_get_option('exclude_links'));
         $exclude_links = array_merge($exclude_links, $a);
         foreach ($exclude_links as $val) {
             if (stripos(trim($url), trim($val)) === 0) {
@@ -143,7 +143,7 @@ class HnHelper
         $url = rtrim($url, "/");
         if (!admin_setting(Constants::Other_Icon_Source_Https, 0) || $is_format) {
             $pattern = '@^(?:https?://)?([^/]+)@i';
-            $result = preg_match($pattern, $url, $matches);
+            $result  = preg_match($pattern, $url, $matches);
             return $matches[1];
         } else {
             return $url;
@@ -153,7 +153,12 @@ class HnHelper
     public static function get_icon($link_url, $site_type): string
     {
         if ($link_url != '' || ($site_type == 1 && $link_url != '')) {
-            $ico = (admin_setting(Constants::Other_Icon_Source) . HnHelper::format_url($link_url) . admin_setting(Constants::Other_Icon_Source_Type));
+            //如果图标为.png结尾
+            if (substr($link_url, -4) == '.png') {
+                $ico = $link_url;
+            } else {
+                $ico = (admin_setting(Constants::Other_Icon_Source) . HnHelper::format_url($link_url) . admin_setting(Constants::Other_Icon_Source_Type));
+            }
         } elseif ($site_type == 2) {
             $ico = asset('asset/imgs/qr_ico.png');
         } elseif ($site_type == 3) {
