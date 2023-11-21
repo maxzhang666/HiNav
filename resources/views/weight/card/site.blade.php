@@ -76,7 +76,7 @@
 //        else{
 //            $ico = get_post_meta_img($post->ID, '_thumbnail', true);
 //        }
-    $ico=HnHelper::get_icon($link_url,$site->type);
+    $ico=$site->icon ?? HnHelper::get_icon($link_url,$site->type);
     }
 @endphp
 <div class="url-body default">
@@ -110,6 +110,6 @@
     @if (!empty($link_url) && admin_setting(Constants::Basic_To_Go_Btn,1) )
         <a href="{{HnHelper:: go_to($link_url) }}" class="togo text-center text-muted is-views" target="_blank" data-id="{{ $site->id }}"
            data-toggle="tooltip" data-placement="right" title="直达{!! $title !!}" {!! HnHelper::nofollow($link_url)!!}><i
-                class="iconfont icon-goto"></i></a>
+                    class="iconfont icon-goto"></i></a>
     @endif
 </div>
